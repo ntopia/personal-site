@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>로키 3일, 두 가지 안 · 2026.10.06–09</title>
+<meta name="description" content="캘거리 도착부터 출국까지 사흘. 빡세게 도는 안과 여유롭게 도는 안.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── tokens (places.html과 동일 계열) ─────────────────── */
+:root{
+  --spruce:#121A17;  --slate:#19231F;  --slate2:#212D28;
+  --stone:#31423A;   --stone-d:#26332D;
+  --lichen:#9AAFA4;  --lichen-d:#6C7F75;
+  --snow:#ECF2EE;
+  --glacier:#5FC6CE; --larch:#E2A93F;  --flag:#D2603F;
+  --f-disp:"Gowun Batang",serif;
+  --f-body:"IBM Plex Sans KR",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+  --pad:clamp(18px,4vw,44px);
+  --maxw:1080px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{margin:0;background:var(--spruce);color:var(--lichen);
+  font-family:var(--f-body);font-weight:300;font-size:15px;line-height:1.75;
+  -webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--glacier);outline-offset:3px}
+.skip{position:absolute;left:-9999px}.skip:focus{left:8px;top:8px;z-index:99;background:var(--glacier);color:var(--spruce);padding:10px 16px}
+
+/* ── hero ─────────────────────────────────────────────── */
+.hero{padding:clamp(52px,9vw,104px) var(--pad) clamp(30px,4vw,44px)}
+.hero__in{max-width:var(--maxw);margin:0 auto}
+.eyebrow{margin:0 0 clamp(18px,3vw,28px);font-family:var(--f-mono);font-size:11px;
+  letter-spacing:.22em;color:var(--glacier);text-transform:uppercase}
+.eyebrow span{color:var(--stone);margin:0 .5em}
+.hero__h1{margin:0;font-family:var(--f-disp);font-weight:700;color:var(--snow);
+  font-size:clamp(38px,8vw,84px);line-height:1.02;letter-spacing:-.02em}
+.hero__h1 em{font-style:normal;color:var(--glacier)}
+.hero__sub{margin:clamp(20px,3vw,28px) 0 0;max-width:52ch;font-size:clamp(14.5px,1.5vw,16.5px);line-height:1.85}
+
+/* ── 안 고르기 ─────────────────────────────────────────── */
+.pick{max-width:var(--maxw);margin:0 auto;padding:clamp(28px,4vw,44px) var(--pad) 0}
+.pick__lbl{margin:0 0 14px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.18em;
+  color:var(--lichen-d);text-transform:uppercase}
+.pick__g{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.pick__c{text-align:left;background:var(--slate);border:1px solid var(--stone-d);border-radius:4px;
+  padding:22px 22px 20px;cursor:pointer;font-family:inherit;color:inherit;
+  transition:border-color .18s ease,background .18s ease;display:flex;flex-direction:column}
+.pick__c:hover{border-color:var(--stone);background:var(--slate2)}
+.pick__c.is-on{border-color:var(--glacier);background:var(--slate2);
+  box-shadow:inset 0 0 0 1px rgba(95,198,206,.35)}
+.pick__n{margin:0;font-family:var(--f-disp);font-weight:700;font-size:26px;line-height:1.2;color:var(--snow)}
+.pick__c.is-on .pick__n{color:var(--glacier)}
+.pick__t{margin:5px 0 0;font-family:var(--f-mono);font-size:11px;color:var(--lichen-d);letter-spacing:.02em}
+.pick__b{margin:13px 0 0;font-size:13.5px;line-height:1.8}
+.pick__s{display:flex;flex-wrap:wrap;gap:0;margin-top:16px;padding-top:14px;border-top:1px solid var(--stone-d)}
+.pick__s > div{flex:1 1 46%;padding:5px 10px 5px 0}
+.pick__s dt{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.11em;color:var(--lichen-d);text-transform:uppercase}
+.pick__s dd{margin:2px 0 0;font-family:var(--f-mono);font-size:14px;color:var(--snow)}
+.pick__mark{margin-top:14px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;
+  color:var(--lichen-d);text-transform:uppercase}
+.pick__c.is-on .pick__mark{color:var(--glacier)}
+
+/* ── 얻는 것 / 잃는 것 ─────────────────────────────────── */
+.tradeoff{max-width:var(--maxw);margin:clamp(26px,4vw,38px) auto 0;padding:0 var(--pad)}
+.tradeoff__g{display:grid;gap:1px;background:var(--stone-d);border:1px solid var(--stone-d);
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.tradeoff__c{background:var(--slate);padding:20px 22px 22px}
+.tradeoff__h{margin:0 0 12px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase}
+.tradeoff__c--get .tradeoff__h{color:var(--glacier)}
+.tradeoff__c--lose .tradeoff__h{color:var(--flag)}
+.tradeoff__l{margin:0;padding:0;list-style:none}
+.tradeoff__l li{position:relative;padding-left:18px;margin-bottom:8px;font-size:13.5px;line-height:1.75}
+.tradeoff__l li::before{content:"";position:absolute;left:0;top:11px;width:7px;height:1px;background:var(--stone)}
+.tradeoff__c--get li::before{background:var(--glacier)}
+.tradeoff__c--lose li::before{background:var(--flag)}
+
+/* ── 일정 ─────────────────────────────────────────────── */
+.sched{max-width:var(--maxw);margin:0 auto;padding:clamp(44px,6vw,72px) var(--pad) 0}
+.plan[hidden]{display:none}
+.day{margin-bottom:clamp(38px,5vw,58px)}
+.day__hd{margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--stone-d)}
+.day__row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.day__n{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;color:var(--glacier);text-transform:uppercase}
+.day__d{font-family:var(--f-disp);font-weight:700;font-size:clamp(24px,3.4vw,34px);color:var(--snow);letter-spacing:-.01em}
+.day__w{font-size:13px;color:var(--lichen-d)}
+.day__tit{margin-left:auto;font-size:13.5px;color:var(--lichen)}
+/* 일조시간 막대 */
+.sun{margin-top:14px}
+.sun__bar{position:relative;height:6px;background:var(--stone-d);border-radius:3px;overflow:hidden}
+.sun__day{position:absolute;top:0;bottom:0;background:rgba(95,198,206,.30)}
+.sun__act{position:absolute;top:0;bottom:0;background:var(--glacier);opacity:.85}
+.sun__meta{display:flex;justify-content:space-between;margin-top:6px;
+  font-family:var(--f-mono);font-size:10px;color:var(--lichen-d);letter-spacing:.02em}
+
+.tl{display:grid;grid-template-columns:64px 1fr;gap:0}
+.it{display:contents}
+.it__t{font-family:var(--f-mono);font-size:12.5px;color:var(--lichen-d);
+  padding:14px 12px 14px 0;text-align:right;white-space:nowrap}
+.it__b{position:relative;padding:14px 0 14px 20px;border-left:1px solid var(--stone-d)}
+.it__b::before{content:"";position:absolute;left:-4px;top:20px;width:7px;height:7px;border-radius:50%;
+  background:var(--stone);border:1px solid var(--spruce)}
+.it--see .it__t,.it--hike .it__t{color:var(--snow)}
+.it--see .it__b::before{background:var(--glacier);width:9px;height:9px;left:-5px}
+.it--hike .it__b::before{background:var(--larch);width:9px;height:9px;left:-5px}
+.it--fly .it__b::before{background:var(--snow)}
+.it__h{margin:0;font-size:15px;font-weight:400;color:var(--lichen);line-height:1.5}
+.it--see .it__h,.it--hike .it__h,.it--fly .it__h{font-family:var(--f-disp);font-weight:700;
+  font-size:19px;color:var(--snow);letter-spacing:-.01em;line-height:1.35}
+.it__h a{text-decoration:none;border-bottom:1px solid rgba(95,198,206,.4)}
+.it__h a:hover{border-bottom-color:var(--glacier);color:var(--glacier)}
+.it__dur{display:inline-block;margin-left:9px;font-family:var(--f-mono);font-size:10.5px;
+  color:var(--lichen-d);border:1px solid var(--stone-d);padding:1px 6px;vertical-align:2px;white-space:nowrap}
+.it--hike .it__dur{color:var(--larch);border-color:rgba(226,169,63,.35)}
+.it__n{margin:6px 0 0;font-size:13.5px;line-height:1.75;color:var(--lichen)}
+.it--move .it__h,.it--eat .it__h,.it--stay .it__h{font-size:14px;color:var(--lichen-d)}
+.it--stay .it__b{border-left-style:dashed}
+
+/* ── 옵션 ─────────────────────────────────────────────── */
+.opt{max-width:var(--maxw);margin:0 auto;padding:clamp(18px,3vw,26px) var(--pad) 0}
+.opt__h{margin:0 0 6px;font-family:var(--f-disp);font-weight:700;font-size:clamp(20px,2.6vw,26px);color:var(--snow)}
+.opt__p{margin:0 0 18px;font-size:13.5px;max-width:60ch}
+.opt__g{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+.opt__c{background:var(--slate);border:1px solid var(--stone-d);border-radius:4px;padding:16px 18px 18px}
+.opt__w{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;color:var(--lichen-d);text-transform:uppercase}
+.opt__n{margin:6px 0 0;font-size:16px;color:var(--snow);line-height:1.45}
+.opt__n a{text-decoration:none;border-bottom:1px solid rgba(95,198,206,.4)}
+.opt__n a:hover{color:var(--glacier)}
+.opt__d{display:inline-block;margin-left:8px;font-family:var(--f-mono);font-size:11px;color:var(--larch)}
+.opt__t{margin:8px 0 0;font-size:13px;line-height:1.7}
+
+/* ── 준비물 ───────────────────────────────────────────── */
+.prep{border-top:1px solid var(--stone-d);margin-top:clamp(52px,7vw,84px);background:var(--slate)}
+.prep__in{max-width:var(--maxw);margin:0 auto;padding:clamp(44px,6vw,72px) var(--pad)}
+.prep__h1{margin:0 0 clamp(26px,4vw,38px);font-family:var(--f-disp);font-weight:700;
+  font-size:clamp(24px,3.4vw,34px);color:var(--snow);letter-spacing:-.01em}
+.prep__s{margin-bottom:clamp(28px,4vw,40px)}
+.prep__h2{margin:0 0 14px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.18em;
+  color:var(--glacier);text-transform:uppercase}
+.prep__l{margin:0;padding:0;display:grid;gap:12px}
+.prep__l > div{display:grid;grid-template-columns:132px 1fr;gap:16px;align-items:baseline}
+.prep__l dt{font-size:13.5px;color:var(--snow)}
+.prep__l dd{margin:0;font-size:13.5px;line-height:1.8}
+.prep__l dd b{color:var(--snow);font-weight:500}
+
+/* ── footer ───────────────────────────────────────────── */
+.foot{border-top:1px solid var(--stone-d);padding:clamp(36px,5vw,56px) var(--pad)}
+.foot__in{max-width:var(--maxw);margin:0 auto}
+.foot__cta{display:inline-flex;align-items:center;gap:10px;text-decoration:none;
+  border:1px solid var(--stone);border-radius:3px;padding:13px 20px;transition:all .18s ease}
+.foot__cta:hover{border-color:var(--glacier);background:var(--slate)}
+.foot__cta b{font-family:var(--f-disp);font-weight:700;font-size:17px;color:var(--snow)}
+.foot__cta span{font-family:var(--f-mono);font-size:11px;color:var(--glacier)}
+.foot__m{margin:26px 0 0;font-family:var(--f-mono);font-size:10.5px;color:var(--lichen-d);letter-spacing:.04em}
+
+/* ── responsive ───────────────────────────────────────── */
+@media (max-width:640px){
+  .tl{grid-template-columns:52px 1fr}
+  .it__t{font-size:11.5px;padding-right:9px}
+  .it__b{padding-left:16px}
+  .prep__l > div{grid-template-columns:1fr;gap:2px}
+  .day__tit{margin-left:0;flex-basis:100%}
+  .pick__s > div{flex-basis:100%}
+}
+@media print{.pick,.foot__cta{display:none}body{background:#fff;color:#222}}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#sched">일정으로 건너뛰기</a>
+
+<header class="hero">
+  <div class="hero__in">
+    <p class="eyebrow">CANADIAN ROCKIES <span>·</span> 2026.10.06 – 10.09 <span>·</span> 4인 1차</p>
+    <h1 class="hero__h1">사흘을 쓰는<br><em>두 가지 방법</em></h1>
+    <p class="hero__sub">10/6 16:30 캘거리 착륙, 10/9 16:00 인천행. 실질 가용 시간은
+      <b>풀데이 이틀과 반나절 둘</b>. 로키 전체를 담기엔 짧아서, 무엇을 넣느냐가 아니라
+      무엇을 버리느냐로 갈린다.</p>
+  </div>
+</header>
+
+<div class="pick">
+  <p class="pick__lbl">두 안 중 하나를 고른다</p>
+  <div class="pick__g"><button class="pick__c" type="button" data-plan="easy" aria-pressed="false">
+  <h3 class="pick__n">숨 쉬는 3일</h3>
+  <p class="pick__t">요호 + 아이스필즈 남쪽</p>
+  <p class="pick__b">새벽 기상을 없애고 컬럼비아 아이스필드 왕복 3시간 30분을 잘라냈다. 대신 두 호수를 모두 오전 빛으로 보고, 각 장소에서 서두르지 않으며, 저녁이 남는다.</p>
+  <dl class="pick__s"><div><dt>가장 이른 기상</dt><dd>07:30</dd></div><div><dt>하루 최장 활동</dt><dd>9시간</dd></div><div><dt>가장 긴 연속 운전</dt><dd>1시간 30분</dd></div><div><dt>들르는 곳</dt><dd>11곳</dd></div></dl>
+  <p class="pick__mark">○ 이 안으로 보기</p>
+</button><button class="pick__c" type="button" data-plan="packed" aria-pressed="false">
+  <h3 class="pick__n">꽉 채우는 3일</h3>
+  <p class="pick__t">컬럼비아 아이스필드까지</p>
+  <p class="pick__b">빙하 위를 밟고, 아이스필즈 파크웨이를 끝까지 달리고, 요호와 두 호수까지 전부 넣는다. 대신 이틀은 해 뜨기 전에 일어나야 하고 하루는 12시간을 밖에서 보낸다.</p>
+  <dl class="pick__s"><div><dt>가장 이른 기상</dt><dd>05:50</dd></div><div><dt>하루 최장 활동</dt><dd>12시간 10분</dd></div><div><dt>가장 긴 연속 운전</dt><dd>2시간 40분</dd></div><div><dt>들르는 곳</dt><dd>15곳</dd></div></dl>
+  <p class="pick__mark">○ 이 안으로 보기</p>
+</button></div>
+</div>
+
+<div class="tradeoff"><div data-plan-pane="easy" hidden><div class="tradeoff__g">
+  <div class="tradeoff__c tradeoff__c--get"><p class="tradeoff__h">이걸 얻는다</p><ul class="tradeoff__l"><li>모레인 + 레이크 루이스를 연달아 오전 빛으로</li><li>에메랄드 레이크 호반 산책 5.2km 전체</li><li>매일 저녁 시간 — 숙소 도착 17:15~17:30</li><li>날씨가 나쁘면 하루를 통째로 바꿀 여유</li></ul></div>
+  <div class="tradeoff__c tradeoff__c--lose"><p class="tradeoff__h">이걸 포기한다</p><ul class="tradeoff__l"><li>아타바스카 빙하 — 빙하 위를 밟지 못한다</li><li>미스타야 캐니언, 밴프 곤돌라</li><li>모레인 레이크 일출 (대신 오전 빛으로 본다)</li></ul></div>
+</div></div><div data-plan-pane="packed" hidden><div class="tradeoff__g">
+  <div class="tradeoff__c tradeoff__c--get"><p class="tradeoff__h">이걸 얻는다</p><ul class="tradeoff__l"><li>아타바스카 빙하 설상차 + 스카이워크</li><li>모레인 레이크 일출 (알펜글로우)</li><li>미스타야 캐니언</li><li>밴프 곤돌라 · 설퍼산 정상</li></ul></div>
+  <div class="tradeoff__c tradeoff__c--lose"><p class="tradeoff__h">이걸 포기한다</p><ul class="tradeoff__l"><li>여유 시간 — 거의 모든 날이 분 단위로 짜여 있다</li><li>저녁 시간 — 숙소 도착이 18:40~19:30</li><li>날씨가 나쁘면 대체 계획이 없다</li></ul></div>
+</div></div></div>
+
+<main class="sched" id="sched"><div data-plan-pane="easy" hidden><section class="day">
+  <header class="day__hd">
+    <div class="day__row">
+      <span class="day__n">DAY 1</span>
+      <span class="day__d">10.06</span>
+      <span class="day__w">화</span>
+      <span class="day__tit">캘거리 도착, 밴프까지</span>
+    </div>
+    <div class="sun">
+  <div class="sun__bar" role="img" aria-label="일조 07:50–19:11, 활동 16:30–20:30">
+    <span class="sun__day" style="left:17.2%;width:68.8%"></span>
+    <span class="sun__act" style="left:69.7%;width:24.2%"></span>
+  </div>
+  <div class="sun__meta"><span>일출 07:50</span>
+    <span>활동 16:30 – 20:30 · 4시간</span>
+    <span>일몰 19:11</span></div>
+</div>
+  </header>
+  <div class="tl"><div class="it it--fly">
+  <div class="it__t">16:30</div>
+  <div class="it__b"><h4 class="it__h">YZF → YYC 착륙<span class="it__dur">WS0684</span></h4><p class="it__n">옐로나이프에서 캘거리. 현지시각 기준.</p></div>
+</div><div class="it it--move">
+  <div class="it__t">17:30</div>
+  <div class="it__b"><h4 class="it__h">렌터카 인수<span class="it__dur">40분</span></h4><p class="it__n">중형 SUV 이상. 4인 + 대형 캐리어 4개는 세단에 안 들어간다.</p></div>
+</div><div class="it it--move">
+  <div class="it__t">18:00</div>
+  <div class="it__b"><h4 class="it__h">YYC → 밴프<span class="it__dur">1시간 30분</span></h4><p class="it__n">Hwy 1 4차선. 마지막 30분은 어둡지만 도로가 좋아 부담 없다.</p></div>
+</div><div class="it it--eat">
+  <div class="it__t">19:30</div>
+  <div class="it__b"><h4 class="it__h">밴프 도착, 저녁</h4><p class="it__n">옐로나이프에서 오로라 보고 온 직후다. 첫날은 무리하지 않는다.</p></div>
+</div><div class="it it--stay">
+  <div class="it__t">20:30</div>
+  <div class="it__b"><h4 class="it__h">밴프 1박</h4></div>
+</div></div>
+</section><section class="day">
+  <header class="day__hd">
+    <div class="day__row">
+      <span class="day__n">DAY 2</span>
+      <span class="day__d">10.07</span>
+      <span class="day__w">수</span>
+      <span class="day__tit">보우밸리 · 요호</span>
+    </div>
+    <div class="sun">
+  <div class="sun__bar" role="img" aria-label="일조 07:51–19:08, 활동 08:30–17:30">
+    <span class="sun__day" style="left:17.3%;width:68.4%"></span>
+    <span class="sun__act" style="left:21.2%;width:54.5%"></span>
+  </div>
+  <div class="sun__meta"><span>일출 07:51</span>
+    <span>활동 08:30 – 17:30 · 9시간</span>
+    <span>일몰 19:08</span></div>
+</div>
+  </header>
+  <div class="tl"><div class="it it--move">
+  <div class="it__t">08:30</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-bvp">밴프 출발 → 보우밸리 파크웨이</a><span class="it__dur">30분</span></h4><p class="it__n">아침을 여유롭게 먹고 나선다.</p></div>
+</div><div class="it it--hike">
+  <div class="it__t">09:00</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-johnston">존스턴 캐니언 — 상단폭포</a><span class="it__dur">2시간</span></h4><p class="it__n">왕복 5.2km. 오늘 유일한 하이킹이라 힘을 여기에 쓴다.</p></div>
+</div><div class="it it--see">
+  <div class="it__t">11:15</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-castlemtn">캐슬 마운틴 · 모랜츠 커브</a><span class="it__dur">20분</span></h4><p class="it__n">도로변 뷰포인트 두 곳.</p></div>
+</div><div class="it it--eat">
+  <div class="it__t">11:50</div>
+  <div class="it__b"><h4 class="it__h">레이크루이스 빌리지 점심 + 주유<span class="it__dur">1시간</span></h4><p class="it__n">앉아서 제대로 먹는다.</p></div>
+</div><div class="it it--move">
+  <div class="it__t">13:00</div>
+  <div class="it__b"><h4 class="it__h">요호 국립공원 진입<span class="it__dur">25분</span></h4><p class="it__n">BC주. 겨울타이어법 구간(10/1~).</p></div>
+</div><div class="it it--see">
+  <div class="it__t">13:30</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-naturalbr">내추럴 브리지</a><span class="it__dur">20분</span></h4><p class="it__n">주차 후 3분. 짧지만 강렬하다.</p></div>
+</div><div class="it it--see">
+  <div class="it__t">14:05</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-takakkaw">타카카우 폭포</a><span class="it__dur">55분</span></h4><p class="it__n">진입로 13km 헤어핀. 주차장에서 폭포까지 10분.</p></div>
+</div><div class="it it--see">
+  <div class="it__t">15:30</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-emerald">에메랄드 레이크</a><span class="it__dur">1시간 30분</span></h4><p class="it__n">호수 한 바퀴 5.2km 평지 산책. 오후 빛에 색이 산다.</p></div>
+</div><div class="it it--stay">
+  <div class="it__t">17:30</div>
+  <div class="it__b"><h4 class="it__h">레이크루이스 1박</h4><p class="it__n">저녁 여유. 숙소에서 쉰다.</p></div>
+</div></div>
+</section><section class="day">
+  <header class="day__hd">
+    <div class="day__row">
+      <span class="day__n">DAY 3</span>
+      <span class="day__d">10.08</span>
+      <span class="day__w">목</span>
+      <span class="day__tit">두 호수 오전 빛 · 빙원도로 남쪽</span>
+    </div>
+    <div class="sun">
+  <div class="sun__bar" role="img" aria-label="일조 07:53–19:06, 활동 08:15–17:15">
+    <span class="sun__day" style="left:17.5%;width:68.0%"></span>
+    <span class="sun__act" style="left:19.7%;width:54.5%"></span>
+  </div>
+  <div class="sun__meta"><span>일출 07:53</span>
+    <span>활동 08:15 – 17:15 · 9시간</span>
+    <span>일몰 19:06</span></div>
+</div>
+  </header>
+  <div class="tl"><div class="it it--move">
+  <div class="it__t">08:15</div>
+  <div class="it__b"><h4 class="it__h">Park &amp; Ride 셔틀<span class="it__dur">25분</span></h4><p class="it__n">07:30 기상이면 충분하다.</p></div>
+</div><div class="it it--see">
+  <div class="it__t">08:40</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-moraine">모레인 레이크</a><span class="it__dur">1시간 20분</span></h4><p class="it__n">오전 빛에 텐피크스가 정면으로 밝다. 록파일 전망대 5분.</p></div>
+</div><div class="it it--move">
+  <div class="it__t">10:00</div>
+  <div class="it__b"><h4 class="it__h">Lake Connector 셔틀<span class="it__dur">20분</span></h4><p class="it__n">두 호수를 30분 간격으로 직결한다. 차를 다시 안 타도 된다.</p></div>
+</div><div class="it it--see">
+  <div class="it__t">10:20</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-louise">레이크 루이스</a><span class="it__dur">1시간 20분</span></h4><p class="it__n">호반 왕복 4km 평지. 오전 빛이 압도적으로 좋다.</p></div>
+</div><div class="it it--eat">
+  <div class="it__t">12:00</div>
+  <div class="it__b"><h4 class="it__h">레이크루이스 빌리지 점심 + 주유<span class="it__dur">1시간</span></h4></div>
+</div><div class="it it--move">
+  <div class="it__t">13:00</div>
+  <div class="it__b"><h4 class="it__h">아이스필즈 파크웨이 북상<span class="it__dur">40분</span></h4><p class="it__n">셀룰러 신호 없음. 주유 확인.</p></div>
+</div><div class="it it--see">
+  <div class="it__t">13:40</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-bowlake">보우 레이크 · 크로우풋 빙하</a><span class="it__dur">45분</span></h4><p class="it__n">호숫가를 천천히 걷는다.</p></div>
+</div><div class="it it--see">
+  <div class="it__t">14:45</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-peyto">페이토 레이크 (보우 서밋)</a><span class="it__dur">1시간</span></h4><p class="it__n">여기서 회차. 파크웨이의 하이라이트는 다 봤다.</p></div>
+</div><div class="it it--move">
+  <div class="it__t">15:45</div>
+  <div class="it__b"><h4 class="it__h">남하 → 밴프<span class="it__dur">1시간 30분</span></h4></div>
+</div><div class="it it--stay">
+  <div class="it__t">17:15</div>
+  <div class="it__b"><h4 class="it__h">밴프 1박</h4><p class="it__n">저녁 시간이 통째로 남는다.</p></div>
+</div></div>
+</section><section class="day">
+  <header class="day__hd">
+    <div class="day__row">
+      <span class="day__n">DAY 4</span>
+      <span class="day__d">10.09</span>
+      <span class="day__w">금</span>
+      <span class="day__tit">밴프 아침, 그리고 공항</span>
+    </div>
+    <div class="sun">
+  <div class="sun__bar" role="img" aria-label="일조 07:55–19:04, 활동 08:45–12:30">
+    <span class="sun__day" style="left:17.7%;width:67.6%"></span>
+    <span class="sun__act" style="left:22.7%;width:22.7%"></span>
+  </div>
+  <div class="sun__meta"><span>일출 07:55</span>
+    <span>활동 08:45 – 12:30 · 3시간 45분</span>
+    <span>일몰 19:04</span></div>
+</div>
+  </header>
+  <div class="tl"><div class="it it--see">
+  <div class="it__t">08:45</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-vermilion">버밀리언 레이크</a><span class="it__dur">30분</span></h4><p class="it__n">여유로운 아침 뒤에.</p></div>
+</div><div class="it it--see">
+  <div class="it__t">09:30</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-minnewanka">투잭 레이크 · 레이크 미네완카</a><span class="it__dur">45분</span></h4><p class="it__n">큰뿔양 관찰.</p></div>
+</div><div class="it it--eat">
+  <div class="it__t">10:30</div>
+  <div class="it__b"><h4 class="it__h">밴프 시내 커피<span class="it__dur">30분</span></h4></div>
+</div><div class="it it--move">
+  <div class="it__t">11:00</div>
+  <div class="it__b"><h4 class="it__h">밴프 → YYC<span class="it__dur">1시간 30분</span></h4></div>
+</div><div class="it it--move">
+  <div class="it__t">12:30</div>
+  <div class="it__b"><h4 class="it__h">YYC 도착 · 렌터카 반납</h4><p class="it__n">여유 3시간 30분.</p></div>
+</div><div class="it it--fly">
+  <div class="it__t">16:00</div>
+  <div class="it__b"><h4 class="it__h">YYC → ICN<span class="it__dur">WS0086</span></h4></div>
+</div></div>
+</section><div class="opt">
+  <h3 class="opt__h">조절 손잡이</h3>
+  <p class="opt__p">당일 컨디션과 날씨를 보고 붙이거나 떼는 것들.</p>
+  <div class="opt__g"><div class="opt__c">
+  <p class="opt__w">3일차 오후</p>
+  <p class="opt__n"><a href="places.html#p-mistaya">미스타야 캐니언 추가</a><span class="opt__d">+1시간</span></p>
+  <p class="opt__t">페이토에서 40분 더 올라간다. 밴프 도착 18:15.</p>
+</div><div class="opt__c">
+  <p class="opt__w">3일차 오후</p>
+  <p class="opt__n"><a href="places.html#p-bowglacier">보우 빙하 폭포 하이킹</a><span class="opt__d">+3시간</span></p>
+  <p class="opt__t">왕복 8.8km, 고도 190m. 빙하 녹은 물이 쏟아지는 폭포 아래까지. 설상차 없이 빙하에 가장 가까이 가는 방법. 밴프 도착 19:00.</p>
+</div><div class="opt__c">
+  <p class="opt__w">2일차 저녁</p>
+  <p class="opt__n"><a href="places.html#p-nordicspa">캔모어 Nordic Spa</a><span class="opt__d">+3시간</span></p>
+  <p class="opt__t">밴프 어퍼 핫스프링스가 휴장이라 대안. 예약 필수.</p>
+</div></div>
+</div></div><div data-plan-pane="packed" hidden><section class="day">
+  <header class="day__hd">
+    <div class="day__row">
+      <span class="day__n">DAY 1</span>
+      <span class="day__d">10.06</span>
+      <span class="day__w">화</span>
+      <span class="day__tit">캘거리 도착, 밴프까지</span>
+    </div>
+    <div class="sun">
+  <div class="sun__bar" role="img" aria-label="일조 07:50–19:11, 활동 16:30–20:30">
+    <span class="sun__day" style="left:17.2%;width:68.8%"></span>
+    <span class="sun__act" style="left:69.7%;width:24.2%"></span>
+  </div>
+  <div class="sun__meta"><span>일출 07:50</span>
+    <span>활동 16:30 – 20:30 · 4시간</span>
+    <span>일몰 19:11</span></div>
+</div>
+  </header>
+  <div class="tl"><div class="it it--fly">
+  <div class="it__t">16:30</div>
+  <div class="it__b"><h4 class="it__h">YZF → YYC 착륙<span class="it__dur">WS0684</span></h4><p class="it__n">옐로나이프에서 캘거리. 현지시각 기준.</p></div>
+</div><div class="it it--move">
+  <div class="it__t">17:30</div>
+  <div class="it__b"><h4 class="it__h">렌터카 인수<span class="it__dur">40분</span></h4><p class="it__n">중형 SUV 이상. 4인 + 대형 캐리어 4개는 세단에 안 들어간다.</p></div>
+</div><div class="it it--move">
+  <div class="it__t">18:00</div>
+  <div class="it__b"><h4 class="it__h">YYC → 밴프<span class="it__dur">1시간 30분</span></h4><p class="it__n">Hwy 1 4차선. 마지막 30분은 어둡지만 도로가 좋아 부담 없다.</p></div>
+</div><div class="it it--eat">
+  <div class="it__t">19:30</div>
+  <div class="it__b"><h4 class="it__h">밴프 도착, 저녁</h4><p class="it__n">옐로나이프에서 오로라 보고 온 직후다. 첫날은 무리하지 않는다.</p></div>
+</div><div class="it it--stay">
+  <div class="it__t">20:30</div>
+  <div class="it__b"><h4 class="it__h">밴프 1박</h4></div>
+</div></div>
+</section><section class="day">
+  <header class="day__hd">
+    <div class="day__row">
+      <span class="day__n">DAY 2</span>
+      <span class="day__d">10.07</span>
+      <span class="day__w">수</span>
+      <span class="day__tit">보우밸리 · 레이크 루이스 · 요호</span>
+    </div>
+    <div class="sun">
+  <div class="sun__bar" role="img" aria-label="일조 07:51–19:08, 활동 07:20–17:50">
+    <span class="sun__day" style="left:17.3%;width:68.4%"></span>
+    <span class="sun__act" style="left:14.1%;width:63.6%"></span>
+  </div>
+  <div class="sun__meta"><span>일출 07:51</span>
+    <span>활동 07:20 – 17:50 · 10시간 30분</span>
+    <span>일몰 19:08</span></div>
+</div>
+  </header>
+  <div class="tl"><div class="it it--see">
+  <div class="it__t">07:20</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-vermilion">버밀리언 레이크</a><span class="it__dur">30분</span></h4><p class="it__n">일출 07:51. 숙소에서 5분. 런들산이 수면에 통째로 비친다.</p></div>
+</div><div class="it it--move">
+  <div class="it__t">08:15</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-bvp">보우밸리 파크웨이(1A) 진입</a><span class="it__dur">30분</span></h4><p class="it__n">고속도로 대신 옛 도로로. 야생동물 조우 확률이 가장 높은 구간.</p></div>
+</div><div class="it it--hike">
+  <div class="it__t">08:45</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-johnston">존스턴 캐니언 — 상단폭포</a><span class="it__dur">2시간</span></h4><p class="it__n">왕복 5.2km. 협곡 벽에 매달린 캣워크를 따라 들어간다.</p></div>
+</div><div class="it it--see">
+  <div class="it__t">11:00</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-morant">캐슬 마운틴 · 모랜츠 커브</a><span class="it__dur">25분</span></h4><p class="it__n">도로변 뷰포인트 두 곳. 각각 10분씩.</p></div>
+</div><div class="it it--eat">
+  <div class="it__t">11:30</div>
+  <div class="it__b"><h4 class="it__h">레이크루이스 빌리지 점심 + 주유<span class="it__dur">45분</span></h4><p class="it__n">빙원도로에는 주유소가 없다. 여기서 채운다.</p></div>
+</div><div class="it it--see">
+  <div class="it__t">12:15</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-louise">레이크 루이스</a><span class="it__dur">1시간 15분</span></h4><p class="it__n">호반 산책로 왕복 4km 평지. 빅토리아 빙하가 정면에.</p></div>
+</div><div class="it it--move">
+  <div class="it__t">13:50</div>
+  <div class="it__b"><h4 class="it__h">요호 국립공원 진입<span class="it__dur">25분</span></h4><p class="it__n">BC주. 키킹호스 패스는 겨울타이어법 구간(10/1~).</p></div>
+</div><div class="it it--see">
+  <div class="it__t">14:15</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-takakkaw">타카카우 폭포</a><span class="it__dur">1시간</span></h4><p class="it__n">낙차 373m. 진입로 13km가 헤어핀이라 운전 주의.</p></div>
+</div><div class="it it--see">
+  <div class="it__t">15:45</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-naturalbr">내추럴 브리지</a><span class="it__dur">15분</span></h4><p class="it__n">강물이 바위를 뚫고 지나간다. 주차 후 3분.</p></div>
+</div><div class="it it--see">
+  <div class="it__t">16:10</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-emerald">에메랄드 레이크</a><span class="it__dur">1시간 10분</span></h4><p class="it__n">서향이라 늦은 오후에 색이 가장 살아난다.</p></div>
+</div><div class="it it--stay">
+  <div class="it__t">17:50</div>
+  <div class="it__b"><h4 class="it__h">레이크루이스 1박</h4></div>
+</div></div>
+</section><section class="day">
+  <header class="day__hd">
+    <div class="day__row">
+      <span class="day__n">DAY 3</span>
+      <span class="day__d">10.08</span>
+      <span class="day__w">목</span>
+      <span class="day__tit">모레인 일출 · 빙원도로 완주</span>
+    </div>
+    <div class="sun">
+  <div class="sun__bar" role="img" aria-label="일조 07:53–19:06, 활동 06:30–18:40">
+    <span class="sun__day" style="left:17.5%;width:68.0%"></span>
+    <span class="sun__act" style="left:9.1%;width:73.7%"></span>
+  </div>
+  <div class="sun__meta"><span>일출 07:53</span>
+    <span>활동 06:30 – 18:40 · 12시간 10분</span>
+    <span>일몰 19:06</span></div>
+</div>
+  </header>
+  <div class="tl"><div class="it it--move">
+  <div class="it__t">06:30</div>
+  <div class="it__b"><h4 class="it__h">Lake Louise Park &amp; Ride 도착<span class="it__dur">30분</span></h4><p class="it__n">무료 주차. 1 Whitehorn Road.</p></div>
+</div><div class="it it--move">
+  <div class="it__t">07:00</div>
+  <div class="it__b"><h4 class="it__h">셔틀 → 모레인 레이크<span class="it__dur">25분</span></h4><p class="it__n">개인 차량 진입 금지. 예약 필수.</p></div>
+</div><div class="it it--see">
+  <div class="it__t">07:25</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-moraine">모레인 레이크 — 록파일 일출</a><span class="it__dur">1시간 35분</span></h4><p class="it__n">일출 07:53. 텐피크스에 붉은 알펜글로우가 든다. 이번 여행 최고의 순간.</p></div>
+</div><div class="it it--move">
+  <div class="it__t">09:30</div>
+  <div class="it__b"><h4 class="it__h">셔틀 복귀 → 주유 후 북상<span class="it__dur">55분</span></h4><p class="it__n">아이스필즈 파크웨이는 셀룰러 신호가 없다.</p></div>
+</div><div class="it it--see">
+  <div class="it__t">10:25</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-bowlake">보우 레이크 · 크로우풋 빙하</a><span class="it__dur">30분</span></h4><p class="it__n">차에서 내리면 바로 이 장면.</p></div>
+</div><div class="it it--see">
+  <div class="it__t">11:10</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-peyto">페이토 레이크 (보우 서밋)</a><span class="it__dur">45분</span></h4><p class="it__n">주차장에서 포장길 15분. 늑대 머리 모양의 형광 청록.</p></div>
+</div><div class="it it--see">
+  <div class="it__t">12:05</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-mistaya">미스타야 캐니언</a><span class="it__dur">30분</span></h4><p class="it__n">폭 1~2m 틈으로 강 전체가 쏟아진다.</p></div>
+</div><div class="it it--move">
+  <div class="it__t">12:55</div>
+  <div class="it__b"><h4 class="it__h">컬럼비아 아이스필드 도착<span class="it__dur">20분</span></h4><p class="it__n">레이크루이스에서 128km.</p></div>
+</div><div class="it it--see">
+  <div class="it__t">13:15</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-athabasca">아타바스카 빙하 설상차 + 스카이워크</a><span class="it__dur">2시간 45분</span></h4><p class="it__n">점심 포함. 실제 빙하 위 체류는 20~30분. 사전 예약 필수.</p></div>
+</div><div class="it it--move">
+  <div class="it__t">16:00</div>
+  <div class="it__b"><h4 class="it__h">남하 → 밴프<span class="it__dur">2시간 40분</span></h4><p class="it__n">일몰 19:06이라 도착까지 해가 남는다.</p></div>
+</div><div class="it it--stay">
+  <div class="it__t">18:40</div>
+  <div class="it__b"><h4 class="it__h">밴프 1박</h4></div>
+</div></div>
+</section><section class="day">
+  <header class="day__hd">
+    <div class="day__row">
+      <span class="day__n">DAY 4</span>
+      <span class="day__d">10.09</span>
+      <span class="day__w">금</span>
+      <span class="day__tit">밴프 아침, 그리고 공항</span>
+    </div>
+    <div class="sun">
+  <div class="sun__bar" role="img" aria-label="일조 07:55–19:04, 활동 07:30–12:15">
+    <span class="sun__day" style="left:17.7%;width:67.6%"></span>
+    <span class="sun__act" style="left:15.2%;width:28.8%"></span>
+  </div>
+  <div class="sun__meta"><span>일출 07:55</span>
+    <span>활동 07:30 – 12:15 · 4시간 45분</span>
+    <span>일몰 19:04</span></div>
+</div>
+  </header>
+  <div class="tl"><div class="it it--see">
+  <div class="it__t">07:30</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-vermilion">버밀리언 레이크</a><span class="it__dur">30분</span></h4><p class="it__n">마지막 아침. 숙소에서 5분.</p></div>
+</div><div class="it it--see">
+  <div class="it__t">08:10</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-minnewanka">투잭 레이크 · 레이크 미네완카</a><span class="it__dur">50분</span></h4><p class="it__n">루프 드라이브. 큰뿔양이 주차장까지 내려온다.</p></div>
+</div><div class="it it--see">
+  <div class="it__t">09:10</div>
+  <div class="it__b"><h4 class="it__h"><a href="places.html#p-banffgondola">밴프 곤돌라 · 설퍼산</a><span class="it__dur">1시간 15분</span></h4><p class="it__n">9시 개장. 정상에서 여섯 개 산맥이 한눈에.</p></div>
+</div><div class="it it--move">
+  <div class="it__t">10:45</div>
+  <div class="it__b"><h4 class="it__h">밴프 → YYC<span class="it__dur">1시간 30분</span></h4></div>
+</div><div class="it it--move">
+  <div class="it__t">12:15</div>
+  <div class="it__b"><h4 class="it__h">YYC 도착 · 렌터카 반납</h4><p class="it__n">국제선이라 3시간 전 도착.</p></div>
+</div><div class="it it--fly">
+  <div class="it__t">16:00</div>
+  <div class="it__b"><h4 class="it__h">YYC → ICN<span class="it__dur">WS0086</span></h4></div>
+</div></div>
+</section><div class="opt">
+  <h3 class="opt__h">조절 손잡이</h3>
+  <p class="opt__p">당일 컨디션과 날씨를 보고 붙이거나 떼는 것들.</p>
+  <div class="opt__g"><div class="opt__c">
+  <p class="opt__w">2일차</p>
+  <p class="opt__n"><a href="places.html#p-johnston">존스턴 캐니언을 하단폭포까지만</a><span class="opt__d">-1시간</span></p>
+  <p class="opt__t">시간이 밀리면 여기서 줄인다. 왕복 2.2km.</p>
+</div><div class="opt__c">
+  <p class="opt__w">4일차</p>
+  <p class="opt__n"><a href="places.html#p-surprise">밴프 곤돌라 대신 서프라이즈 코너</a><span class="opt__d">-1시간</span></p>
+  <p class="opt__t">비행기 시간이 불안하면 곤돌라를 뺀다.</p>
+</div></div>
+</div></div></main>
+
+<section class="prep">
+  <div class="prep__in">
+    <h2 class="prep__h1">어느 안을 고르든 해야 할 것</h2>
+    <section class="prep__s">
+  <h3 class="prep__h2">예약</h3>
+  <dl class="prep__l"><div><dt>모레인 레이크 셔틀</dt><dd>4월분은 매진. 나머지 60%가 <b>이용 48시간 전 오전 8시(MT)</b>에 열린다. 3일차(10/8)분은 <b>10/6 오전 8시</b> — 옐로나이프도 같은 시간대라 비행기 타기 전에 잡으면 된다. 백업으로 사설 셔틀(Moraine Lake Bus Company)을 지금 확정해둘 것.</dd></div><div><dt>숙소</dt><dd>레이크루이스는 객실이 절대적으로 적다. Deer Lodge(옥상 온수욕조), Paradise Lodge(독채 방갈로, 2커플에 적합), Post Hotel, Fairmont Chateau, Mountaineer Lodge. 밴프는 2박이니 같은 호텔로 잡고 중간날 짐을 맡길 수 있는지 문의.</dd></div><div><dt>설상차 티켓</dt><dd>꽉 채우는 3일을 고를 때만. banffjaspercollection.com에서 사전 예약. 10/12가 마지막 운영일이라 막바지 수요가 몰린다.</dd></div><div><dt>국립공원 입장권</dt><dd>1일 그룹권 CAD 24.50 (차량 1대 7인까지) × 4일 ≈ 98달러. 연간 가족권(167.50)보다 싸다.</dd></div></dl>
+</section><section class="prep__s">
+  <h3 class="prep__h2">차 · 운전</h3>
+  <dl class="prep__l"><div><dt>차종</dt><dd>중형 SUV 이상. 4인 + 옐로나이프 겨울옷 캐리어 4개는 세단에 안 들어간다.</dd></div><div><dt>겨울타이어</dt><dd>BC주 법규가 10/1 발효. 레이크루이스↔요호(Hwy 1 키킹호스 패스)가 대상이다. YYC 렌터카는 기본 M+S라 법적으로는 충족되지만 예약 후 전화로 확인할 것.</dd></div><div><dt>주유</dt><dd>아이스필즈 파크웨이에는 10월에 주유소가 사실상 없다. <b>레이크루이스에서 만땅</b>, 오프라인 지도 저장.</dd></div><div><dt>도로 상황</dt><dd>출발 전 매일 511 Alberta(앨버타) / DriveBC(BC주) 확인.</dd></div></dl>
+</section><section class="prep__s">
+  <h3 class="prep__h2">짐 · 안전</h3>
+  <dl class="prep__l"><div><dt>기온</dt><dd>낮 8~13°C, 밤 -2~0°C. 눈 가능. 옐로나이프 방한복이 있으니 레이어링만 조절.</dd></div><div><dt>신발</dt><dd>방수 트레킹화 필수. 존스턴 캐니언 캣워크와 빙원도로 트레일 모두 젖고 미끄럽다. 눈 오면 체인젠.</dd></div><div><dt>야생동물</dt><dd>10월 중순까지 엘크 발정기. 이 시기 수컷은 공격적이고 밴프 시내에도 나온다. <b>30m 이상 거리 유지.</b></dd></div><div><dt>먹을 것</dt><dd>보우 레이크~아이스필드 구간엔 식당이 거의 없다. 보온병과 도시락을 챙길 것.</dd></div></dl>
+</section>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot__in">
+    <a class="foot__cta" href="places.html">
+      <b>관광지 42곳 전체 목록</b><span>→ places.html</span></a>
+    <p class="foot__m">2026.08.24 작성 · 운영일과 요금은 예약 전 공식 사이트에서 재확인할 것</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  var KEY = 'rockies-plan';
+  var picks = Array.prototype.slice.call(document.querySelectorAll('.pick__c'));
+  var panes = Array.prototype.slice.call(document.querySelectorAll('[data-plan-pane]'));
+
+  function show(key) {
+    picks.forEach(function (b) {
+      var on = b.dataset.plan === key;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      b.querySelector('.pick__mark').textContent = on ? '● 선택됨' : '○ 이 안으로 보기';
+    });
+    panes.forEach(function (p) { p.hidden = p.dataset.planPane !== key; });
+    try { localStorage.setItem(KEY, key); } catch (e) { /* private mode */ }
+  }
+
+  picks.forEach(function (b) {
+    b.addEventListener('click', function () {
+      show(b.dataset.plan);
+      // 선택이 바뀌면 일정 첫머리로 — 아래 내용이 통째로 갈리므로
+      var top = document.getElementById('sched');
+      if (top && b.getBoundingClientRect().top < 0) top.scrollIntoView({ block: 'start' });
+    });
+  });
+
+  var saved;
+  try { saved = localStorage.getItem(KEY); } catch (e) { saved = null; }
+  show(saved === 'easy' || saved === 'packed' ? saved : 'easy');
+}());
+
+</script>
+</body>
+</html>
