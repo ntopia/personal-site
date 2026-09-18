@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>인테리어 수다 정리</title>
+<meta name="description" content="2026-09-18 인테리어 대화를 갈래별로 다시 묶은 정리.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<style>
+:root {
+  --bg: #F2F5F4;
+  --surface: #FFFFFF;
+  --surface-2: #E6EDEB;
+  --ink: #1B2A2D;
+  --ink-2: #4C5F63;
+  --line: #CDD9D6;
+  --accent: #1B6E78;
+  --accent-soft: #D8EBEB;
+  --hl: #F6E3A1;
+  --hl-ink: #4A3900;
+  --side: #8A989A;
+  --warm: #F3C98B;
+  --neutral: #F7F1E3;
+  --cool: #D6E6FA;
+  --swatch-ink: #2A2A2A;
+
+  --f-display: "Hahmlet", "Noto Serif KR", "AppleMyungjo", "Batang", serif;
+  --f-body: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #10181A;
+    --surface: #172225;
+    --surface-2: #1F2D31;
+    --ink: #E3ECEA;
+    --ink-2: #9DB1B3;
+    --line: #2C3D41;
+    --accent: #6CC3CC;
+    --accent-soft: #1C3A3E;
+    --hl: #57470F;
+    --hl-ink: #F6E6A8;
+    --side: #6D7C7F;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #10181A;
+  --surface: #172225;
+  --surface-2: #1F2D31;
+  --ink: #E3ECEA;
+  --ink-2: #9DB1B3;
+  --line: #2C3D41;
+  --accent: #6CC3CC;
+  --accent-soft: #1C3A3E;
+  --hl: #57470F;
+  --hl-ink: #F6E6A8;
+  --side: #6D7C7F;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 16px;
+  line-height: 1.75;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+.page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-inline: 20px;
+  padding-block: 40px 96px;
+}
+
+/* ---------- masthead ---------- */
+.mast { display: flex; flex-direction: column; gap: 14px; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+.eyebrow { font-family: var(--f-mono); font-size: 12.5px; letter-spacing: 0.04em; color: var(--ink-2); }
+h1 { font-family: var(--f-display); font-weight: 700; font-size: clamp(30px, 5vw, 44px); line-height: 1.2; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+.lede { max-width: 42em; margin: 0; color: var(--ink-2); font-size: 16.5px; }
+.stats { display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 6px 0 0; padding: 0; list-style: none; font-family: var(--f-mono); font-size: 13px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.stats b { color: var(--ink); font-weight: 500; font-size: 15px; margin-right: 4px; }
+
+/* ---------- layout ---------- */
+.layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; margin-top: 28px; }
+.toc { font-size: 14px; }
+.toc-title { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.06em; color: var(--ink-2); margin: 0 0 10px; }
+.toc ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.toc a { display: block; padding: 4px 11px; border: 1px solid var(--line); border-radius: 999px; text-decoration: none; color: var(--ink); background: var(--surface); line-height: 1.5; }
+.toc a:hover { border-color: var(--accent); color: var(--accent); }
+@media (min-width: 1000px) {
+  .layout { grid-template-columns: 200px minmax(0, 1fr); gap: 56px; }
+  .toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); align-self: start; }
+  .toc ol { flex-direction: column; flex-wrap: nowrap; gap: 0; border-left: 1px solid var(--line); }
+  .toc a { border: 0; border-radius: 0; background: none; padding: 5px 0 5px 14px; margin-left: -1px; border-left: 1px solid transparent; color: var(--ink-2); }
+  .toc a:hover { border-left-color: var(--accent); }
+}
+main { display: flex; flex-direction: column; gap: 64px; min-width: 0; }
+
+/* ---------- section ---------- */
+section { display: flex; flex-direction: column; gap: 18px; scroll-margin-top: 24px; }
+.sec-head { display: flex; flex-direction: column; gap: 6px; }
+.kicker { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.06em; color: var(--accent); }
+h2 { font-family: var(--f-display); font-weight: 700; font-size: clamp(22px, 3.2vw, 28px); line-height: 1.3; margin: 0; text-wrap: balance; }
+.gist { margin: 0; color: var(--ink-2); max-width: 44em; }
+h3 { font-size: 17px; font-weight: 600; margin: 0; line-height: 1.45; }
+h4 { font-size: 15px; font-weight: 600; margin: 0; color: var(--ink-2); }
+p { margin: 0; max-width: 46em; }
+
+ul.pts { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; max-width: 48em; }
+ul.pts > li { position: relative; padding-left: 18px; }
+ul.pts > li::before { content: ""; position: absolute; left: 2px; top: 0.78em; width: 7px; height: 1px; background: var(--ink-2); }
+ul.pts ul { margin: 6px 0 0; padding-left: 18px; color: var(--ink-2); font-size: 15px; display: flex; flex-direction: column; gap: 4px; }
+
+.who { font-family: var(--f-mono); font-size: 12px; padding: 1px 7px; border-radius: 4px; background: var(--surface-2); color: var(--ink-2); white-space: nowrap; vertical-align: 1px; }
+.key { background: var(--hl); color: var(--hl-ink); padding: 1px 5px; border-radius: 3px; font-weight: 500; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.tag { font-family: var(--f-mono); font-size: 11.5px; letter-spacing: 0.04em; padding: 1px 7px; border-radius: 3px; background: var(--hl); color: var(--hl-ink); margin-right: 6px; white-space: nowrap; vertical-align: 1px; }
+.note { font-size: 14px; color: var(--ink-2); border-left: 2px solid var(--line); padding-left: 12px; max-width: 48em; }
+.note b { color: var(--ink); font-weight: 600; }
+.num { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+
+/* ---------- TL;DR ---------- */
+.tldr { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 24px; }
+.tldr ol { margin: 0; padding: 0; list-style: none; counter-reset: t; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 18px 32px; }
+.tldr li { counter-increment: t; display: grid; grid-template-columns: 26px minmax(0, 1fr); font-size: 15px; line-height: 1.65; }
+.tldr li::before { content: counter(t); font-family: var(--f-mono); font-size: 13px; color: var(--accent); padding-top: 2px; }
+.tldr strong { display: block; font-weight: 600; font-size: 15.5px; }
+.tldr span { color: var(--ink-2); }
+
+/* ---------- people table ---------- */
+.scroll { overflow-x: auto; max-width: 100%; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.6; }
+th, td { text-align: left; padding: 9px 14px 9px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--f-mono); font-size: 12px; font-weight: 500; letter-spacing: 0.05em; color: var(--ink-2); white-space: nowrap; }
+td.nowrap { white-space: nowrap; }
+td .handle { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-2); }
+td.r, th.r { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--f-mono); font-size: 13px; }
+
+/* ---------- thread map ---------- */
+.tmap { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px 20px 14px; display: flex; flex-direction: column; gap: 7px; }
+.tm-row { display: grid; grid-template-columns: 116px minmax(0, 1fr); gap: 12px; align-items: center; }
+.tm-label { font-size: 13px; line-height: 1.3; color: var(--ink); }
+.tm-track { position: relative; height: 14px; background:
+  linear-gradient(to right, var(--line) 1px, transparent 1px) 0 0 / 24% 100%; border-radius: 2px; }
+.tm-track i { position: absolute; top: 2px; bottom: 2px; background: var(--accent); border-radius: 2px; min-width: 5px; }
+.tm-row.side .tm-track i { background: var(--side); }
+.tm-row.side .tm-label { color: var(--ink-2); }
+.tm-axis { display: grid; grid-template-columns: 116px minmax(0, 1fr); gap: 12px; margin-top: 4px; }
+.tm-axis div { position: relative; height: 18px; font-family: var(--f-mono); font-size: 11px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.tm-axis div span { position: absolute; top: 0; transform: translateX(-2px); white-space: nowrap; }
+.tm-axis div span:last-child { left: auto; right: 0; transform: none; }
+@media (max-width: 520px) {
+  .tm-row, .tm-axis { grid-template-columns: 84px minmax(0, 1fr); gap: 8px; }
+  .tm-label { font-size: 12px; }
+  .tmap { padding: 16px 14px 10px; }
+}
+
+/* ---------- cost bars ---------- */
+.bars { display: flex; flex-direction: column; gap: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 22px 24px; }
+.bar { display: flex; flex-direction: column; gap: 5px; }
+.bar-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; font-size: 14.5px; }
+.bar-top b { font-weight: 600; }
+.bar-top .num { font-size: 14px; color: var(--ink); white-space: nowrap; }
+.bar-rail { height: 10px; background: var(--surface-2); border-radius: 2px; }
+.bar-rail i { display: block; height: 100%; background: var(--accent); border-radius: 2px; }
+.bar.soft .bar-rail i { background: repeating-linear-gradient(135deg, var(--accent) 0 4px, transparent 4px 7px); }
+.bar small { font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+.legend { font-size: 13px; color: var(--ink-2); display: flex; gap: 18px; flex-wrap: wrap; }
+.legend i { display: inline-block; width: 22px; height: 8px; border-radius: 2px; margin-right: 6px; background: var(--accent); vertical-align: 1px; }
+.legend i.soft { background: repeating-linear-gradient(135deg, var(--accent) 0 4px, transparent 4px 7px); }
+
+/* ---------- 3-way compare ---------- */
+.trio { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 0; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); overflow: hidden; }
+.trio > div { padding: 20px 22px; display: flex; flex-direction: column; gap: 8px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; font-size: 15px; line-height: 1.65; }
+.trio h3 { font-size: 16px; }
+.trio .by { font-family: var(--f-mono); font-size: 12px; color: var(--ink-2); }
+.trio ul { margin: 0; padding-left: 16px; display: flex; flex-direction: column; gap: 5px; color: var(--ink-2); }
+
+/* ---------- trade blocks ---------- */
+.trade { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; padding-top: 22px; border-top: 1px solid var(--line); }
+@media (min-width: 760px) { .trade { grid-template-columns: 170px minmax(0, 1fr); gap: 28px; } }
+.trade-name { display: flex; flex-direction: column; gap: 2px; }
+.trade-name h3 { font-family: var(--f-display); font-size: 19px; font-weight: 700; }
+.trade-name span { font-family: var(--f-mono); font-size: 12px; color: var(--ink-2); }
+.trade-body { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+
+/* ---------- color temperature ---------- */
+.ctemp { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-radius: 6px; overflow: hidden; border: 1px solid var(--line); max-width: 520px; }
+.ctemp div { padding: 12px 12px 10px; color: var(--swatch-ink); display: flex; flex-direction: column; gap: 1px; font-size: 14px; line-height: 1.4; }
+.ctemp b { font-weight: 600; }
+.ctemp span { font-family: var(--f-mono); font-size: 11.5px; opacity: 0.75; }
+.ctemp .w { background: var(--warm); } .ctemp .n { background: var(--neutral); } .ctemp .c { background: var(--cool); }
+
+/* ---------- steps ---------- */
+ol.steps { margin: 0; padding: 0; list-style: none; counter-reset: s; display: flex; flex-direction: column; gap: 12px; max-width: 48em; }
+ol.steps li { counter-increment: s; display: grid; grid-template-columns: 30px minmax(0, 1fr); }
+ol.steps li::before { content: counter(s); font-family: var(--f-mono); font-size: 12.5px; width: 21px; height: 21px; border: 1px solid var(--accent); color: var(--accent); border-radius: 50%; display: grid; place-items: center; margin-top: 4px; }
+
+/* ---------- case box ---------- */
+.case { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 24px 36px; }
+.case > div { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.case ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.65; }
+ul.check { list-style: none; padding-left: 0; }
+ul.check li { display: grid; grid-template-columns: 24px minmax(0, 1fr); }
+ul.check li::before { content: ""; width: 13px; height: 13px; border: 1.5px solid var(--accent); border-radius: 3px; margin-top: 6px; }
+
+/* ---------- glossary ---------- */
+dl.gloss { margin: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; max-width: 52em; }
+dl.gloss > div { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px; padding: 11px 0; border-bottom: 1px solid var(--line); }
+@media (min-width: 640px) { dl.gloss > div { grid-template-columns: 160px minmax(0, 1fr); gap: 20px; } }
+dl.gloss dt { font-weight: 600; font-size: 15px; }
+dl.gloss dd { margin: 0; font-size: 15px; color: var(--ink-2); line-height: 1.65; }
+
+footer { margin-top: 72px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 13.5px; color: var(--ink-2); display: flex; flex-direction: column; gap: 6px; max-width: 52em; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="mast">
+  <div class="eyebrow">#금융 채널 · 2026-09-18 (금) 15:03 – 17:04</div>
+  <h1>인테리어 수다 정리</h1>
+  <p class="lede">석쥬의 “대출 1회차 상환했어요” 한마디로 시작해, 지난주 막 입주한 석쥬·눈눈 부부의 경험담과 곧 41평으로 이사하는 노랑의 질문이 두 시간 동안 뒤엉킨 대화. 시간순이 아니라 <strong>갈래별</strong>로 다시 묶고, 실제로 써먹을 정보에는 <span class="key">노란 표시</span>를 했다.</p>
+  <ul class="stats">
+    <li><b>856</b>메시지</li>
+    <li><b>10</b>명</li>
+    <li><b>2</b>시간</li>
+    <li><b>13</b>갈래</li>
+  </ul>
+</header>
+
+<div class="layout">
+<nav class="toc" aria-label="목차">
+  <p class="toc-title">갈래</p>
+  <ol>
+    <li><a href="#tldr">한눈에</a></li>
+    <li><a href="#people">등장인물</a></li>
+    <li><a href="#map">갈래 지도</a></li>
+    <li><a href="#cost">비용·예산</a></li>
+    <li><a href="#who">턴키와 업체 선정</a></li>
+    <li><a href="#prep">제안서·실측</a></li>
+    <li><a href="#debate">논쟁: 얼마나 알아야 하나</a></li>
+    <li><a href="#trades">공정별 메모</a></li>
+    <li><a href="#moving">보관이사</a></li>
+    <li><a href="#case">노랑 케이스</a></li>
+    <li><a href="#side">곁가지</a></li>
+    <li><a href="#refs">링크·용어</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<!-- ===== TL;DR ===== -->
+<section id="tldr">
+  <div class="sec-head">
+    <div class="kicker">SUMMARY</div>
+    <h2>한눈에 — 이것만 기억해도 되는 8가지</h2>
+  </div>
+  <div class="tldr">
+    <ol>
+      <li><div><strong>32평 이상 전체공사는 1억부터</strong><span>24평 풀 ≈ 6,600만, 33평 구축(샷시 포함) ≈ 1억. 비싼 축은 화장실 타일·부엌·샷시(≈4천).</span></div></li>
+      <li><div><strong>직장인이면 턴키</strong><span>공정 관리·현장 감시·전후 사진·이웃 동의까지 대행. 다만 “감시를 잘 하는지”는 직접 봐야 한다.</span></div></li>
+      <li><div><strong>견적 받기 전에 제안서부터</strong><span>시공 범위 + 레퍼런스 문서를 들고 3곳 이상. 빈손으로 가면 “다들 이렇게 해요~”로 흘러간다.</span></div></li>
+      <li><div><strong>평면도와 실제는 십수 cm 다르다</strong><span>업자와 같이 실측하며 미팅. 콘센트·조명·랜 포트는 공사 초반에 전부 확정해야 한다.</span></div></li>
+      <li><div><strong>타일은 “드라이픽스 떠발이”를 경계</strong><span>접착제를 점으로 찍어 붙이는 방식. 겨울에 타일 터지는 사고의 단골. 덧방은 싸지만 공간이 줄어든다.</span></div></li>
+      <li><div><strong>냉장고장 짤 때 스프링클러 확인</strong><span>상부장이 스프링클러를 가리면 안 된다(소방법). 깊은 장은 보강대 때문에 추가금.</span></div></li>
+      <li><div><strong>시스템 에어컨은 턴키를 통해서</strong><span>신품 500–650만, 기사마다 천차만별. 직접 견적 내지 말 것.</span></div></li>
+      <li><div><strong>보관이사 체크 2개</strong><span>① 냉장고 전원을 꽂아 보관해 주는가 ② 컨테이너(야외) 보관이 아닌가.</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== PEOPLE ===== -->
+<section id="people">
+  <div class="sec-head">
+    <div class="kicker">WHO</div>
+    <h2>등장인물</h2>
+    <p class="gist">대화 안에서 서로 부르는 별명 기준. 별명이 안 나온 네 사람은 아이디 앞부분만 남기고 가렸다.</p>
+  </div>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>이름</th><th>이 대화에서의 위치</th><th class="r">메시지</th></tr></thead>
+    <tbody>
+      <tr><td class="nowrap"><b>노랑</b></td><td>질문자. 남양주 41평으로 이사 예정, 내일(9/19) 계약 전 집 보러 감. 인테리어 경험은 도배 정도.</td><td class="r">311</td></tr>
+      <tr><td class="nowrap"><b>석쥬</b></td><td>주 답변자. 24평 풀 인테리어 후 지난 토요일(9/12) 입주. 고양이 집사. 턴키 강력 추천파.</td><td class="r">268</td></tr>
+      <tr><td class="nowrap"><b>눈눈</b> (NOON)</td><td>석쥬의 배우자, 미대 졸업. 제안서·가구 배치·조명·자재를 실제로 설계한 사람.</td><td class="r">36</td></tr>
+      <tr><td class="nowrap"><b>복슝</b></td><td>집 마련 고민 중(수원 vs 청량리). 임장·대출·퇴직금 질문 — 인테리어와 별개의 곁가지.</td><td class="r">62</td></tr>
+      <tr><td class="nowrap"><b>si**</b></td><td>경험자, 아이 둘. “공부한 만큼 잘 된다” 공부파의 대표. 감시 못 해서 도배 두 번 함.</td><td class="r">59</td></tr>
+      <tr><td class="nowrap"><b>네모</b></td><td>작년에 33평 구축 전체공사(≈1억). 전문가 친구에게 통으로 맡김. 3D 모델링 vs 실제 사진 공유.</td><td class="r">20</td></tr>
+      <tr><td class="nowrap"><b>mumu**</b></td><td>턴키에 맡기고 공사 중 한 번도 안 가 본 대충파. 콘센트·조명 색온도 조언.</td><td class="r">28</td></tr>
+      <tr><td class="nowrap"><b>jo**</b></td><td>타일 떠발이 시공법·변기 종류 설명 담당.</td><td class="r">36</td></tr>
+      <tr><td class="nowrap"><b>갈렌</b></td><td>리액션·농담 담당. “절대 이사 안 가야겠다.”</td><td class="r">33</td></tr>
+      <tr><td class="nowrap"><b>chun**</b></td><td>“치마형 변기가 뭔가요” 질문 한 번.</td><td class="r">3</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ===== THREAD MAP ===== -->
+<section id="map">
+  <div class="sec-head">
+    <div class="kicker">THREAD MAP</div>
+    <h2>갈래 지도 — 어떤 얘기가 언제 튀어나왔나</h2>
+    <p class="gist">같은 주제가 여러 번 끊겼다 이어진다. 특히 15:40–16:05 구간은 비용·턴키·제안서·실측·타일 얘기가 동시에 진행됐다. 회색은 인테리어와 무관한 곁가지.</p>
+  </div>
+  <div class="tmap" role="img" aria-label="주제별 대화 시간대 도표. 15시부터 17시 5분까지.">
+    <div class="tm-row side"><span class="tm-label">대출·집 마련</span><div class="tm-track"><i style="left:2.4%;width:2.4%"></i><i style="left:17.6%;width:6.4%"></i><i style="left:40.8%;width:1.6%"></i></div></div>
+    <div class="tm-row"><span class="tm-label">턴키·업체 선정</span><div class="tm-track"><i style="left:7.2%;width:4.8%"></i><i style="left:29.6%;width:2.4%"></i><i style="left:33.6%;width:3.2%"></i><i style="left:48%;width:2.4%"></i></div></div>
+    <div class="tm-row"><span class="tm-label">주방·수납·냉장고</span><div class="tm-track"><i style="left:16%;width:1.6%"></i><i style="left:30.4%;width:1.6%"></i><i style="left:77.6%;width:2.4%"></i><i style="left:88%;width:1.6%"></i></div></div>
+    <div class="tm-row"><span class="tm-label">중문·문·고양이</span><div class="tm-track"><i style="left:17.6%;width:4%"></i><i style="left:53.6%;width:6.4%"></i></div></div>
+    <div class="tm-row side"><span class="tm-label">미대 농담·잡담</span><div class="tm-track"><i style="left:23.2%;width:5.6%"></i></div></div>
+    <div class="tm-row"><span class="tm-label">제안서·실측 준비</span><div class="tm-track"><i style="left:28.8%;width:2.4%"></i><i style="left:36.8%;width:1.6%"></i><i style="left:44%;width:3.2%"></i><i style="left:56.8%;width:1.6%"></i></div></div>
+    <div class="tm-row"><span class="tm-label">비용·예산</span><div class="tm-track"><i style="left:31.2%;width:2.4%"></i><i style="left:36%;width:1.6%"></i><i style="left:40.8%;width:1.6%"></i></div></div>
+    <div class="tm-row"><span class="tm-label">전기·조명</span><div class="tm-track"><i style="left:38.4%;width:2.4%"></i><i style="left:92%;width:1.6%"></i></div></div>
+    <div class="tm-row"><span class="tm-label">화장실·타일·변기</span><div class="tm-track"><i style="left:40.8%;width:2.4%"></i><i style="left:61.6%;width:6.4%"></i><i style="left:71.2%;width:1.6%"></i></div></div>
+    <div class="tm-row"><span class="tm-label">감시·공부 논쟁</span><div class="tm-track"><i style="left:44.8%;width:5.6%"></i></div></div>
+    <div class="tm-row"><span class="tm-label">보관이사</span><div class="tm-track"><i style="left:72.8%;width:2.4%"></i></div></div>
+    <div class="tm-row"><span class="tm-label">가전·설비</span><div class="tm-track"><i style="left:80%;width:5.6%"></i><i style="left:93.6%;width:4.8%"></i></div></div>
+    <div class="tm-row"><span class="tm-label">컨셉·자재 고르기</span><div class="tm-track"><i style="left:24%;width:1.6%"></i><i style="left:93.6%;width:3.2%"></i></div></div>
+    <div class="tm-axis"><span></span><div><span style="left:0">15:00</span><span style="left:24%">15:30</span><span style="left:48%">16:00</span><span style="left:72%">16:30</span><span>17:00</span></div></div>
+  </div>
+</section>
+
+<!-- ===== COST ===== -->
+<section id="cost">
+  <div class="sec-head">
+    <div class="kicker">THREAD 01</div>
+    <h2>비용·예산 감각</h2>
+    <p class="gist">노랑의 “얼마를 예산으로 잡아야 하나”에 경험자들이 각자 쓴 돈을 깠다. 결론은 “비싸고, 지금이 제일 싸다(우상향)”.</p>
+  </div>
+
+  <div class="bars">
+    <div class="bar">
+      <div class="bar-top"><span><b>24평 풀 인테리어</b> · 석쥬·눈눈 (2026)</span><span class="num">≈ 6,600만</span></div>
+      <div class="bar-rail"><i style="width:50.8%"></i></div>
+      <small>오늘의집 스탠다드 턴키. 주방 포함 전체. 가견적 후 딜로 할인받은 금액.</small>
+    </div>
+    <div class="bar">
+      <div class="bar-top"><span><b>33평 구축 전체 + 샷시</b> · 네모 (2025)</span><span class="num">≈ 1억</span></div>
+      <div class="bar-rail"><i style="width:76.9%"></i></div>
+      <small>인테리어 전문가 친구에게 통으로 맡김. 화장실은 철거 없이 덧방으로 절약.</small>
+    </div>
+    <div class="bar soft">
+      <div class="bar-top"><span><b>32평 이상 전체공사</b> · 석쥬·눈눈의 체감</span><span class="num">1억 ~</span></div>
+      <div class="bar-rail"><i style="width:76.9%"></i></div>
+      <small>“32평 이상은 1억 시작”, “큰 평수는 1억은 쉽다.”</small>
+    </div>
+    <div class="bar soft">
+      <div class="bar-top"><span><b>41평 “싸게 한 사람”</b> · 석쥬가 전해 들은 사례</span><span class="num">1.3억</span></div>
+      <div class="bar-rail"><i style="width:100%"></i></div>
+      <small>노랑의 반응: “집 하나 추가요네.”</small>
+    </div>
+    <div class="bar soft">
+      <div class="bar-top"><span><b>구축 샷시만</b> · si**의 어림</span><span class="num">≈ 4,000만</span></div>
+      <div class="bar-rail"><i style="width:30.8%"></i></div>
+      <small>구축은 샷시가 관건. 안 하면 겨울에 춥다. 신축이면 이 항목이 통째로 빠진다.</small>
+    </div>
+    <div class="legend"><span><i></i>본인이 실제로 쓴 금액</span><span><i class="soft"></i>전해 들었거나 어림한 금액</span></div>
+  </div>
+
+  <ul class="pts">
+    <li><span class="tag">핵심</span>돈이 크게 드는 축은 <span class="key">화장실(타일 공사)·부엌·샷시</span>. 노랑은 신축이라 샷시가 없고 화장실·부엌을 안 건드릴 계획이라 “1억은 안 넘겠지”로 정리.</li>
+    <li>반대로 도배·중문·장 교체 수준은 “얼마 안 든다” <span class="who">노랑</span>.</li>
+    <li>개별 항목 시세로 언급된 것: 시스템 에어컨 신품 <span class="num">500–650만</span>(기사마다 편차 큼) <span class="who">석쥬</span>, 삼성 일체형 세탁건조기 <span class="num">≈ 330만</span> <span class="who">노랑</span>.</li>
+    <li>추가금이 붙는 지점: 장을 깊게 짜면 판이 커져 보강대가 늘어난다 <span class="who">눈눈</span>.</li>
+    <li>“화장실은 비싸지만, 하니까 행복은 합니다” <span class="who">석쥬</span> · “결국 어디까지 쓰느냐의 타협” <span class="who">네모</span>.</li>
+  </ul>
+</section>
+
+<!-- ===== WHO TO HIRE ===== -->
+<section id="who">
+  <div class="sec-head">
+    <div class="kicker">THREAD 02</div>
+    <h2>누구에게 맡기나 — 턴키·반셀프·셀프, 그리고 업체 고르기</h2>
+    <p class="gist">노랑이 “턴키가 뭐지?”라고 물으면서 시작된 갈래. 비유가 쏟아졌다: 인테리어 쿠버네티스, 매니저, 웨딩플래너.</p>
+  </div>
+
+  <div class="trio">
+    <div>
+      <h3>턴키</h3>
+      <p>업체 하나가 전 공정을 관리. 기사 섭외·일정·현장 감시를 대신한다.</p>
+      <ul>
+        <li>현장 감시 + 공정별 전후 사진을 계속 찍어 보내 줌</li>
+        <li>이웃 주민 공사 동의도 대신 받아 줌</li>
+        <li>시스템 에어컨 같은 외부 설비 견적도 묶어서 처리</li>
+      </ul>
+    </div>
+    <div>
+      <h3>반셀프</h3>
+      <p>공정별 기사를 본인이 직접 섭외하고 조율.</p>
+      <ul>
+        <li>“성질 나쁜 각종 기사와 연락을 많이 해야 해서 현업이 불가능” <span class="who">석쥬</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>셀프</h3>
+      <p>“너가 팀장임” <span class="who">mumu**</span></p>
+      <ul>
+        <li>이 대화에서 실제로 해 본 사람은 없음</li>
+      </ul>
+    </div>
+  </div>
+
+  <ul class="pts">
+    <li><span class="tag">핵심</span><span class="key">“턴키는 직장 있으면 써야 한다”</span> <span class="who">석쥬</span>. mumu**는 턴키에 맡기고 공사 중 현장에 한 번도 안 갔고, 들인 노력은 “PPT 만들기 + 현금 뽑기”뿐이었다고.</li>
+    <li>웨딩플래너 비유에 대한 석쥬의 반론: 결혼식은 대충 해도 잊히지만 “집은 N년 가니까… 대충 하면 N년 불행하다.”</li>
+    <li>오늘의집이 턴키 업체를 큐레이션해 준다. 석쥬네가 계약한 곳도 <span class="key">오늘의집 스탠다드</span>이고, 노랑의 지인도 같은 곳에서 했다고.</li>
+  </ul>
+
+  <h3>석쥬·눈눈의 업체 선정 과정</h3>
+  <ol class="steps">
+    <li><div>제안서(RFP)를 만들어 <b>3곳에 견적 요청</b>.</div></li>
+    <li><div>① 박목수 → 상담한 사람이 불쾌해서 탈락. ② 리뷰 좋은 다른 업체 → 견적서를 질질 끌어서 탈락. ③ 오늘의집 스탠다드 → 느낌이 좋아 계약. (“세 번째에 만족하면 계약하라는 자연상수 법칙” — 비서 문제 농담)</div></li>
+    <li><div><span class="tag">핵심</span>가견적을 받은 뒤 <span class="key">“여기서 딜 치면 뭐 더 해 주실 수 있어요?”</span>로 협상 → 꽤 할인받음.</div></li>
+  </ol>
+  <ul class="pts">
+    <li>“상담을 해 보면 느낌이 온다.” 다만 문서를 들고 간 게 위협적이었는지 상담 자체가 잘 성사되지 않은 곳도 있었다 <span class="who">눈눈</span>.</li>
+    <li>아쉬운 점: 계약한 업체의 <b>붙박이장 품질이 약간 부실</b>. 나머지는 만족 <span class="who">석쥬</span>. → 그래서 장은 이케아로 하는 사람이 많다. 어차피 부실한 건 비슷하니 수납이라도 마음대로 변형할 수 있는 쪽으로 <span class="who">si**</span>.</li>
+    <li>석쥬는 이 업체를 추천할 의사가 있음. 남양주는 멀지만 “시공이 매일 9–6으로 이뤄지는 건 아니라서 문의는 해 볼 만하다.”</li>
+    <li>노랑은 지인이 잘 됐다는 업체 쪽으로 마음이 기울었지만, 여러 곳에서 견적은 받을 예정.</li>
+  </ul>
+</section>
+
+<!-- ===== PREP ===== -->
+<section id="prep">
+  <div class="sec-head">
+    <div class="kicker">THREAD 03</div>
+    <h2>제안서와 사전 준비 — “PPT는 프롬프트다”</h2>
+    <p class="gist">눈눈이 만든 제안서 캡처와 실제 시공 결과 사진이 올라오면서 “견적 맡길 때 이미 문서가 있어야 하는구나”로 이어진 갈래.</p>
+  </div>
+
+  <h3>제안서</h3>
+  <ul class="pts">
+    <li><span class="tag">핵심</span>대단한 게 아니라 <span class="key">시공 범위 + 레퍼런스 이미지</span> 정도를 담은 문서 <span class="who">눈눈</span>. 결과물이 “상상이랑 싱크로율이 너무 높아서 기뻤다.”</li>
+    <li>견적 맡길 때 아무 생각 없이 가면 “다들 이렇게 해요~” 하고 흘러가 버린다 <span class="who">석쥬</span>. “PPT = prompt 같은 것” <span class="who">mumu**</span>.</li>
+    <li>만드는 도구로 언급된 것
+      <ul>
+        <li>ChatGPT로 원하는 장(가구) 이미지를 대충 만들어 갔더니 알아서 그 느낌으로 나옴 <span class="who">석쥬</span></li>
+        <li>Claude artifact — “요새 개쩔음, 글은 내가 다시 써야 하지만” <span class="who">mumu**</span></li>
+        <li>구글 계열 툴로 뽑은 3D 모델링 — 네모가 모델링 이미지와 실제 시공 사진을 나란히 올렸는데, 복슝이 실제 사진인 줄 몰랐을 정도로 비슷</li>
+      </ul>
+    </li>
+    <li>“알아서 해 줘”의 위험: 나중에 딴소리하면 크게 싸운다 <span class="who">석쥬</span>. 네모는 코어 컨셉 몇 개만 말하고 나머지는 맡긴 케이스. 귀찮으면 <span class="key">같은 단지·같은 구조의 잘 된 사례를 찾아 “이렇게 해 주세요”</span>가 제일 편하다 <span class="who">네모</span>.</li>
+  </ul>
+
+  <h3>가구 배치와 실측</h3>
+  <ul class="pts">
+    <li>요즘은 문의하면서 평면도 정도는 그려 가는 추세 <span class="who">si**</span>. 도구: <span class="key">오늘의집 — 단지를 입력하면 가구 배치를 해 볼 수 있는 서비스</span>, 이케아 가구 배치 앱.</li>
+    <li>눈눈은 24평이라 전자레인지·청소기 같은 소가전 자리까지 전부 잡았고, 가구 배치 프로그램 “플레이타임이 100시간은 될 것.” 41평은 그 정도 테트리스는 필요 없을 거라는 위로도.</li>
+    <li><span class="tag">핵심</span><span class="key">평면도와 실제는 십수 cm 차이가 나고, 그게 크리티컬</span>하다 <span class="who">석쥬</span>.</li>
+  </ul>
+  <ol class="steps">
+    <li><div>플로어플랜(평면도)을 보고 <b>플랜 A</b>를 세운다.</div></li>
+    <li><div>업자와 <b>같이 실측</b>하러 간다. 실측하면서 미팅이 진행된다.</div></li>
+    <li><div>평면도와의 괴리를 확인하고, 대책이 필요한 부분을 그 자리에서 정한다. (“이건 이렇게 나왔으니 이렇게 해 주세요”)</div></li>
+  </ol>
+  <ul class="pts">
+    <li>아직 사람이 살고 있는 집이면 <span class="key">양해를 구하고 방문</span>. 작은 선물을 사 가면 웬만하면 해 준다 <span class="who">눈눈</span>. 네모도 그렇게 두 번 갔다. 어차피 실제 공사 때 업체가 다시 실측하긴 한다.</li>
+    <li>석쥬는 <b>insta360 X4</b>를 하루 빌려 빈집을 촬영. 실무자에겐 큰 도움이 안 됐지만 부부끼리 아이디어 모으는 데는 유용했다.</li>
+  </ul>
+
+  <h3>자재는 눈으로 직접</h3>
+  <ul class="pts">
+    <li><span class="tag">핵심</span>석쥬가 견학을 추천한 곳은 <a href="https://naver.me/Gj6XuZip"><b>LX지인 플래그십</b></a>(서울 강남구 학동로 134). 계약 안 해도 된다. <span class="key">색온도별 조명 아래에서 자재 샘플을 볼 수 있다</span> <span class="who">눈눈</span>. 샘플 필름을 챙겨 와 집 조명 색온도에 맞춰 대 보며 컨셉을 짤 것 <span class="who">석쥬</span>.</li>
+  </ul>
+</section>
+
+<!-- ===== DEBATE ===== -->
+<section id="debate">
+  <div class="sec-head">
+    <div class="kicker">THREAD 04</div>
+    <h2>논쟁: 건축주는 얼마나 알아야 하나</h2>
+    <p class="gist">노랑의 “제가… 실측을 해야 하나요?”에서 불붙은, 이 대화에서 가장 의견이 갈린 대목. 노랑은 “날먹이 안 되다니… 절망”으로 마무리.</p>
+  </div>
+  <div class="trio">
+    <div>
+      <h3>공부파</h3>
+      <span class="by">si**</span>
+      <ul>
+        <li>“인테리어는 공부한 만큼 잘 된다. 알아서 해 주는 업자는 없다.”</li>
+        <li>업자는 “그건 이래서 어렵고”를 반복한다. “이러이러하면 되는데요?”로 받아치려면 알아야 한다.</li>
+        <li>업자도 외주를 쓴다. 좋은 업자를 골라도 그 업자가 부른 외주는 복불복.</li>
+        <li>감시 제대로 못 해서 <b>도배를 두 번</b> 했다.</li>
+        <li>아는 업자도 ‘그냥 친구’ 수준이면 못 믿는다. 잘하는 디자인하우스도 팀장이 하루 안 보면 그 부분이 뻑나고, 잘하는 팀장은 늘 바쁘다.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>턴키파</h3>
+      <span class="by">석쥬 · 눈눈</span>
+      <ul>
+        <li>“일을 잘 하는지 감시 → n명 감시. 감시를 잘 하는지 감시 → 1명만 감시. 그러니까 턴키.”</li>
+        <li>그래도 <b>감시를 잘 하는지는 감시</b>해야 한다.</li>
+        <li>유튜브에 영상 많으니 심심할 때마다 보라.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>대충파</h3>
+      <span class="by">mumu** · 네모</span>
+      <ul>
+        <li>“인테리어도 대충 하면 됨. 턴키에다 맡기고 대충 했지.”</li>
+        <li>“대충 살면 편해요(?)”</li>
+        <li>단, 둘 다 PPT는 만들었거나 전문가 친구가 있었다. 노랑: “대충 안 한 사람이 이런 말 하니까 킹받음.”</li>
+      </ul>
+    </div>
+  </div>
+  <p class="note"><b>공통분모.</b> 세 입장 모두 “원하는 걸 문서로 정리해 가는 것”과 “초반 실측·결정 단계에 직접 참여하는 것”은 전제로 깔고 있다. 갈리는 건 공사 중 현장 감시를 얼마나 직접 하느냐다.</p>
+</section>
+
+<!-- ===== TRADES ===== -->
+<section id="trades">
+  <div class="sec-head">
+    <div class="kicker">THREAD 05 – 11</div>
+    <h2>공정별 메모</h2>
+    <p class="gist">여기저기 흩어져 나온 디테일을 공정별로 모았다.</p>
+  </div>
+
+  <div class="trade">
+    <div class="trade-name"><h3>화장실·타일</h3><span>욕실 · 변기</span></div>
+    <div class="trade-body">
+      <ul class="pts">
+        <li>타일은 “진짜 비싸고 예민한 시공.” 본드 재질까지 알아야 해서 아주 피곤하다 <span class="who">석쥬</span>.</li>
+        <li><span class="tag">핵심</span><span class="key">“드라이픽스 떠발이”라는 말을 기억하고 크로스체크</span>할 것.
+          <ul>
+            <li><b>드라이픽스</b> = 시멘트 계열 타일 접착제의 이름. <b>떠발이</b>(속칭 똥발이) = 접착제를 타일 뒤에 고르게 펴 바르지 않고 덩어리 4개 정도만 찍어 붙이는 시공 방법 <span class="who">jo**</span> <span class="who">석쥬</span>.</li>
+            <li>업자 쪽 명분은 “미장면이 고르지 않아서 단차를 맞추려고.”</li>
+            <li>빌라 전셋집이 대부분 이 방식이고, 유튜브의 ‘타일 폭파 사건’도 보면 다 이것. 겨울에 타일이 “터진다” <span class="who">갈렌</span>.</li>
+            <li>다른 접착제로 에폭시 계열이 있고, 접착력이 세다고 함.</li>
+          </ul>
+        </li>
+        <li><b>덧방</b>(기존 타일 위에 새 타일을 덧붙임) 찬반
+          <ul>
+            <li>반대: 면적이 쪼그라든다. 노랑의 회사 동료도 “엄청 좁아지니 하지 말라”고 조언.</li>
+            <li>찬성: 네모는 돈을 아끼려고 철거 없이 덧방. 타일을 다 뜯으면 누수 리스크도 생긴다.</li>
+            <li>덧방이면 바탕면이 이미 평평해서 떠발이로 할 이유가 없을 것 <span class="who">석쥬</span>.</li>
+          </ul>
+        </li>
+        <li>변기: <span class="who">jo**</span>은 투피스 변기를 추천(이유는 대화에 안 나옴). 요즘 변기는 뒤쪽 배수관이 노출되지 않고 일자로 떨어지는 <b>치마형</b>이 많아서, <span class="key">구형 비데 설치가 어렵다</span> <span class="who">석쥬</span>.</li>
+        <li>세면대 하부를 막아 놓은 구조는 안쪽을 못 닦는다 <span class="who">jo**</span>.</li>
+      </ul>
+      <p class="note"><a href="https://m.blog.naver.com/janco0727/221641668580">노랑이 찾아 올린 떠발이 설명 블로그 글</a></p>
+    </div>
+  </div>
+
+  <div class="trade">
+    <div class="trade-name"><h3>주방·수납</h3><span>상판 · 장 · 냉장고</span></div>
+    <div class="trade-body">
+      <ul class="pts">
+        <li>하지 말 것 두 가지 <span class="who">석쥬</span>: <span class="key">저렴이 대리석 상판</span>(이전 전셋집에서 김칫국물을 그대로 먹음), <span class="key">대리석 아트월</span>(“모두가 비극적인 아이템”).</li>
+        <li>눈눈이 설계한 <b>코너장</b>이 호평. 다만 업체 장 품질은 아쉬웠다 → 이케아 대안(위 <a href="#who">업체 선정</a> 참고).</li>
+        <li>유광 + 나무무늬 시트지는 누렇게 변색되고 촌스럽다 <span class="who">노랑</span>. 무광이 예쁘다는 데 다들 동의. 기존 장도 “필름만 잘 해도 어떻게든 때울 수 있다” <span class="who">석쥬</span>.</li>
+        <li><span class="tag">핵심</span><b>냉툭튀</b>(뚱뚱한 냉장고가 장 밖으로 튀어나오는 문제)
+          <ul>
+            <li>눈눈이 이 문제에만 20시간을 썼지만 완전 해결은 못 함. 작은 김치냉장고를 옆에 나란히 둬서 더 어려웠다.</li>
+            <li>공간이 넓으면 장을 깊게 짜거나 가벽 옆에 두는 식으로 해결 가능. 단, <span class="key">장을 깊게 짜면 보강대가 늘어 추가금</span>.</li>
+            <li><span class="key">냉장고 위 상부장이 스프링클러를 가리면 안 된다.</span> 소방법도 변수이니 스프링클러 위치를 먼저 확인.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="trade">
+    <div class="trade-name"><h3>전기·조명</h3><span>콘센트 · 색온도</span></div>
+    <div class="trade-body">
+      <ul class="pts">
+        <li><span class="tag">핵심</span>콘센트는 위치를 옮길 수도, 더 뽑을 수도 있다. 단 <span class="key">공사 초반에 플로어플랜을 보고 전부 결정</span>해야 한다 <span class="who">석쥬</span>. 말한 곳은 기깔나게 뽑아 주지만, 깜빡하면 소파 뒤에 가려져 영원히 못 쓴다 <span class="who">mumu**</span>.</li>
+        <li>챙길 것: 반매립 TV를 하면 TV 뒤에 6구를 뽑아 준다, 랜선 포트 위치, 라인조명 여부, 조명 색온도.</li>
+        <li>조명 색은 직접 골라야 한다: 전구색 / 주백색 / 주광색.</li>
+      </ul>
+      <div class="ctemp" aria-label="조명 색온도 세 가지">
+        <div class="w"><b>전구색</b><span>≈ 2700–3000K</span></div>
+        <div class="n"><b>주백색</b><span>≈ 4000K</span></div>
+        <div class="c"><b>주광색</b><span>≈ 5700–6500K</span></div>
+      </div>
+      <p class="note">K 수치는 대화에 없던 일반 기준을 보충한 것. 석쥬는 “전구색 한 줄 + 주백색 한 줄, 둘 다 켜면 주광색이 된다”고 했는데, 두 색을 섞으면 보통 그 <b>중간</b> 색온도가 되므로 “전구색 + 주광색 → 주백색” 구성을 말하려던 것일 수 있다. 따라 하려면 본인에게 확인 필요.</p>
+      <ul class="pts">
+        <li>눈눈의 조명 팁: <span class="key">집중형(COB) 다운라이트</span>를 포인트가 될 벽·진입로·액자 걸 자리에. <b>액자레일</b>과 함께 요청할 것(눈눈 본인은 말할까 말까 하다 안 해서 아쉬워함). “인테리어에서 조명이 정말 중요하다 — 간접조명 많이 넣으시길.”</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="trade">
+    <div class="trade-name"><h3>중문·문</h3><span>소음 · 고양이</span></div>
+    <div class="trade-body">
+      <ul class="pts">
+        <li><span class="tag">핵심</span><span class="key">중문은 체감 차이가 크다</span> <span class="who">석쥬</span>. 중문을 안 닫고 나왔더니 고양이 우는 소리가 현관 밖까지 들렸고, 닫으면 안 들린다.</li>
+        <li>고양이 차단 효과가 특히 좋다: 현관에 생화와 디퓨저를 둘 공간이 생겼다. 노랑네 고양이는 현관에 눕고 신발끈·박스·비닐을 핥아서 같은 이유로 중문이 필요.</li>
+        <li>드레스룸을 ‘금냥구역’으로 만들려 했지만 실패. 여닫이 레버 손잡이를 9년차 고양이가 점프해서 눌러 연다. 검토 중인 대책: 한쪽 방향으로만 작동하는 손잡이를 거꾸로 달기 <span class="who">jo**</span>, 손잡이를 떼서 90도 돌려 달기 <span class="who">석쥬</span>.</li>
+        <li>풀 인테리어 직후 고양이와 입주하면 아쉬운 점: 고양이가 탄성코트 냄새를 맡고 다닌다.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="trade">
+    <div class="trade-name"><h3>가전·설비</h3><span>에어컨 · 세탁 · 도어락</span></div>
+    <div class="trade-body">
+      <ul class="pts">
+        <li><b>시스템 에어컨</b>: 비싸서 망설였지만 “하니까 좋더라” <span class="who">석쥬</span>, “다시 못 돌아감” <span class="who">노랑</span>. <span class="tag">핵심</span>신품 시세가 <span class="num">500–650만</span>으로 기사마다 천차만별이니 <span class="key">절대 직접 견적 내려 하지 말고 턴키 업체를 통해 처리</span>.</li>
+        <li><b>세탁기</b>(노랑의 고민: 워시타워 vs 일반 vs 일체형 세탁건조기)
+          <ul>
+            <li>일체형은 초기에 “건조가 오래 걸리고 제대로 안 된다”는 평이 많았다 <span class="who">석쥬</span>. 노랑이 2018년에 산 열풍식 일체형은 “영원히 안 말라서” 건조 기능을 안 쓴다.</li>
+            <li>요즘 모델은 괜찮다는 평. 삼성은 끝나면 문을 자동으로 열어 준다. 가격 ≈ 330만.</li>
+            <li>워시타워는 2층(건조기)이 꽤 높다 <span class="who">jo**</span>.</li>
+          </ul>
+        </li>
+        <li><b>신형 도어락</b>: “생각 못 한 지출인데 생각보다 좋았던 것” <span class="who">석쥬</span>. 안면인식 + 지문 + 펫시터용 임시 비밀번호. 안면인식이 특히 편하다. 걸리는 건 프라이버시뿐.</li>
+        <li><b>네트워크</b>: 석쥬는 통신단자함을 열어 스위치를 세팅하고 메쉬 와이파이를 구성(NAS 운용).</li>
+        <li>석쥬의 첫 추천: “침실에 실링팬과 55인치 TV를 다세요.” 노랑은 이번 집엔 TV를 아예 안 둘 계획.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="trade">
+    <div class="trade-name"><h3>컨셉·자재</h3><span>톤 정하기</span></div>
+    <div class="trade-body">
+      <ul class="pts">
+        <li><span class="key">집의 메인 색과 분위기를 먼저 정하고</span> 들어가면 자재 고르기가 편하다 <span class="who">눈눈</span>.</li>
+        <li>감이 없으면: 요즘은 다들 쓰는 자재와 분위기가 어느 정도 정형화돼 있어서, <span class="key">마루 vs 장판, 오크색 vs 월넛색 같은 큼지막한 것만 고르고</span> 미감 있는 턴키에 맡기면 다 예쁘게 나온다 <span class="who">눈눈</span>. “그냥 오늘의집 보면서 대충 고르셔도.”</li>
+        <li>노랑의 확실한 취향은 하나: 유광 시트지가 싫다. 석쥬네 사진을 보고 “저도 저런 톤(무광)으로 하려고요.”</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MOVING ===== -->
+<section id="moving">
+  <div class="sec-head">
+    <div class="kicker">THREAD 12</div>
+    <h2>보관이사</h2>
+    <p class="gist">공사 기간 동안 짐을 맡기는 이사. 석쥬네는 짐을 맡기고 동천에서 한 달 살았다. 업체는 아정당에서 랜덤 매칭.</p>
+  </div>
+  <ul class="pts">
+    <li><span class="tag">핵심</span>업체 고를 때 물어볼 두 가지 <span class="who">석쥬</span>
+      <ul>
+        <li><span class="key">냉장고 전원을 꽂아서 보관해 주는가</span> — 되는 업체면 냉장고를 비울 필요가 없다. 견적 온 분이 “뭘 비워요~ 꽂아 드림~” 했고, 냉동실의 붕어싸만코가 멀쩡히 돌아와 ‘붕싸 벤치마크’ 통과.</li>
+        <li><span class="key">컨테이너 보관이 아닌가</span> — 컨테이너는 폭우가 오면 가구가 다 불어 터진다.</li>
+      </ul>
+    </li>
+    <li>냉장고를 통째로 비울 생각에 막막했던 노랑: “이건 정말 꿀팁. 벤치마크용 아이스크림 남겨 둬야겠다.”</li>
+  </ul>
+</section>
+
+<!-- ===== NORANG CASE ===== -->
+<section id="case">
+  <div class="sec-head">
+    <div class="kicker">CASE</div>
+    <h2>노랑 케이스 — 이 대화가 풀려던 문제</h2>
+    <p class="gist">대화의 절반은 노랑의 상황에 대한 상담이었다. 흩어진 정보를 한곳에 모으면 이렇다.</p>
+  </div>
+  <div class="case">
+    <div>
+      <h4>상황</h4>
+      <ul>
+        <li>남양주 41평, 신축급이라 샷시는 패스. 27평(롯데캐슬) &gt; 33평 = 41평 가격이라 41평을 선택.</li>
+        <li>내일(9/19) 계약 전에 집을 한 번 더 보러 감. 현재 거주자가 있음.</li>
+        <li>보관이사 예정. 고양이 있음. 인테리어 경험은 도배 정도.</li>
+        <li>기존 상태: 벽이 다 긁혀 있음 / 중문은 “못 봐줄” 수준 / 유광 나무무늬 시트지 장 / 욕조 쪽만 회색 벽돌무늬로 바뀐 화장실 타일 / 현관문 프레임에 녹.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>하려는 것</h4>
+      <ul>
+        <li>도배, 스위치 교체, 중문, 시트지 장(찬장) 교체, 조명 교체</li>
+        <li>시스템 에어컨 — 매립형이 이미 있지만 2018년 설치분이라 교체 고려</li>
+        <li>세탁기 교체 여부와 형태</li>
+        <li>액자레일(대화 중 추가)</li>
+        <li>화장실·부엌은 웬만하면 안 건드림 — 그런데 타일이 마음에 안 들어 고민</li>
+        <li>감시는 맡기고 싶음 → 턴키 방향. 목표 예산은 1억 미만.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>대화에서 나온 다음 할 일</h4>
+      <ul class="check">
+        <li><div>내일 방문 때 화장실·중문·벽·장 상태 사진을 꼼꼼히 찍기</div></li>
+        <li><div>스프링클러·콘센트·통신단자함 위치도 같이 찍어 두기</div></li>
+        <li><div>오늘의집 가구 배치로 플랜 A 만들기</div></li>
+        <li><div>시공 범위 + 레퍼런스를 담은 제안서 만들기</div></li>
+        <li><div>LX지인 플래그십에서 자재·색온도 직접 보기</div></li>
+        <li><div>3곳 이상 견적 → 가견적 후 딜</div></li>
+        <li><div>거주자에게 양해 구하고 업자와 동행 실측</div></li>
+        <li><div>보관이사 업체에 냉장고 전원·컨테이너 여부 질문</div></li>
+        <li><div>눈눈에게 상담 요청(석쥬 공인 — “상담료 안내” 농담 포함)</div></li>
+      </ul>
+    </div>
+  </div>
+  <p class="note">“아무것도 몰라서 물어보려 해도 뭘 모르는지 모른다”는 노랑의 말이 이 대화가 길어진 이유. 노랑이 요청한 <b>유튜브 채널 추천</b>과 <b>제안서 PPT 공유</b>는 대화가 끝날 때까지 실제로 올라오지 않았다 — 따로 다시 요청할 거리.</p>
+</section>
+
+<!-- ===== SIDE THREADS ===== -->
+<section id="side">
+  <div class="sec-head">
+    <div class="kicker">SIDE THREADS</div>
+    <h2>곁가지 — 인테리어 밖의 이야기</h2>
+  </div>
+  <h3>대출과 복슝의 집 마련</h3>
+  <ul class="pts">
+    <li>대화의 출발점: 석쥬가 주택담보대출 1회차를 상환. 359회차(30년) 남음. 금리 상승이 걱정이지만 “집에 있으면 기분이 꽤 괜찮다.”</li>
+    <li>복슝은 임장을 다녀 볼 생각. 후보는 수원 아니면 청량리. 모의 대출을 돌려 봤고, 영끌 규모에 따라 지역이 달라져 고민 중. 아는 언니가 부동산을 같이 다녀 주겠다고 함.</li>
+    <li>복슝의 질문: 퇴직금 중간정산은 인센티브 받을 때 해야 금액이 높아지나? — 답은 안 나옴. 복슝 회사는 DB형인 듯.</li>
+    <li><span class="tag">핵심</span>석쥬의 경험: DC형 퇴직연금을 중도인출할 때 <span class="key">TDF 같은 펀드는 현금화에 10영업일</span>이 걸린다. 그래서 중도금을 못 낼 뻔했다.</li>
+    <li>석쥬의 임장 ‘꿀팁’(본인 표현으로 반농담): 단지에 들어가 지나가는 주민에게 인사를 건네 보고 반응을 본다.</li>
+  </ul>
+  <h3>잡담</h3>
+  <ul class="pts">
+    <li>“미대졸 와이프 하나 구비해 두세요” 농담에서 미대 전공별 품평으로 번졌고, 그러다 눈눈 본인이 “안녕하세요 미대졸 와이프입니다”로 등장. “느이 집엔 눈눈 없지”가 석쥬의 요지.</li>
+    <li>네모는 이사한 지 1년이 넘었는데 집들이를 안 해서 복슝에게 추궁당함. 네모의 전문가 친구는 복슝이 집을 사면 소개받기로.</li>
+    <li>si**가 최근 가우디 전시에서 본 인체공학 문손잡이 이야기.</li>
+  </ul>
+</section>
+
+<!-- ===== REFS ===== -->
+<section id="refs">
+  <div class="sec-head">
+    <div class="kicker">REFERENCE</div>
+    <h2>링크와 용어</h2>
+  </div>
+  <h3>대화에 나온 링크·서비스</h3>
+  <ul class="pts">
+    <li><a href="https://naver.me/Gj6XuZip">LX지인 플래그십 (네이버 지도)</a> — 자재 견학 추천 장소 <span class="who">석쥬</span></li>
+    <li><a href="https://m.blog.naver.com/janco0727/221641668580">떠발이 시공 설명 블로그</a> <span class="who">노랑</span></li>
+    <li><a href="https://www.samsung.com/sec/laundry-combo/combo-wd80h25bhy-d2c/WD80H25BHY/">삼성 일체형 세탁건조기 WD80H25BHY</a> <span class="who">노랑</span></li>
+    <li>오늘의집 — 턴키 업체 큐레이션(스탠다드), 단지 기반 가구 배치 서비스 / 이케아 가구 배치 앱 / 아정당 — 보관이사 매칭 / insta360 X4 — 하루 대여 촬영</li>
+  </ul>
+  <h3>용어</h3>
+  <dl class="gloss">
+    <div><dt>턴키</dt><dd>업체 하나가 설계부터 전 공정 관리·감리까지 일괄로 맡는 방식.</dd></div>
+    <div><dt>반셀프</dt><dd>공정별 기사를 건축주가 직접 섭외·조율하는 방식.</dd></div>
+    <div><dt>드라이픽스</dt><dd>시멘트 계열 타일 접착제의 제품명.</dd></div>
+    <div><dt>떠발이</dt><dd>타일 뒷면에 접착제를 덩어리로 몇 점만 찍어 붙이는 시공법. 속이 비어 탈락·파손 위험.</dd></div>
+    <div><dt>덧방</dt><dd>기존 타일을 철거하지 않고 그 위에 새 타일을 붙이는 것. 저렴하지만 공간이 줄어든다.</dd></div>
+    <div><dt>치마형 변기</dt><dd>뒤쪽 배수관이 노출되지 않고 옆면이 바닥까지 일자로 떨어지는 형태.</dd></div>
+    <div><dt>냉툭튀</dt><dd>냉장고가 장 라인보다 앞으로 튀어나오는 것.</dd></div>
+    <div><dt>COB 다운라이트</dt><dd>빛이 한곳으로 모이는 집중형 매입등. 벽·액자 포인트 조명용.</dd></div>
+    <div><dt>탄성코트</dt><dd>베란다·다용도실 벽에 바르는 탄성 도료. 시공 직후 냄새가 남는다.</dd></div>
+    <div><dt>보관이사</dt><dd>공사 기간 동안 짐을 창고에 맡겼다가 입주일에 들이는 이사.</dd></div>
+  </dl>
+</section>
+
+</main>
+</div>
+
+<footer>
+  <span>원본: <span class="num">fin-chan.txt.csv</span> — 2026-09-18 15:03–17:04, 856개 메시지.</span>
+  <span>첨부 이미지(제안서 캡처, 시공 결과, 모델링·실제 비교, 떠발이 도해, 노랑의 새집 사진 등 12장)는 CSV에 파일명만 남아 있어 내용을 직접 보지는 못했고, 앞뒤 대화로 맥락만 반영했다.</span>
+  <span>금액은 모두 대화 참여자의 기억·전언 기준이며 검증된 시세가 아니다.</span>
+</footer>
+
+</div>
+</body>
+</html>
